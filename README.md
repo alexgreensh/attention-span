@@ -20,30 +20,30 @@ Same engineering ability underneath. Only the delivery changes.
 
 ### Before / after
 
-Same question, same model, same correct answer. *"I have three priorities this week and can only finish two. How do I decide what to cut?"* Both are **real eval outputs**. One is a wall you have to read. The other you can skim in five seconds.
+The question: **"Which database should I use for a new social app, PostgreSQL or MongoDB?"** Same model, same correct answer, both **real eval outputs**. One is a wall you have to read. The other you can skim in five seconds.
 
 <table>
 <tr>
-<th align="left" width="50%">Default &nbsp;·&nbsp; 385 words</th>
-<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 196 words</th>
+<th align="left" width="50%">Default &nbsp;·&nbsp; 430 words</th>
+<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 267 words</th>
 </tr>
 <tr valign="top">
 <td>
 
-You've got three priorities and room for two, so the real question isn't "which is best?" but "which one survives being cut?" Run each through four filters, in order. First, consequence of delay: if this slips a week, what actually happens, something breaks or someone's mildly annoyed? Second, who's downstream, a task that unblocks other people is worth more than one that only touches you. Third, cost of the switch, some things get cheaper if you wait and some get more expensive, so cut the one that ages best. Fourth, the regret test: fast-forward to Friday, which un-done item makes you wince hardest? Where this usually lands: keep the hard-deadline one and the one that unblocks others, and cut the self-imposed, reversible one even if it's the one you most want to do…
+For a new social app, start with PostgreSQL, and the bar for choosing MongoDB instead is high. Social apps are relationship-heavy by nature: users follow users, posts belong to users, comments belong to posts, likes connect users to posts. That's a web of connections, exactly what a relational database is built for. In MongoDB you either cram related data into one record and fight size limits, or split it out and end up stitching it back together in your app code anyway. The feed problem makes this worse: timelines, "posts from people you follow," and mutual-friend lookups all lean on the kind of cross-referencing Postgres does in a single query. You also get consistency for free, since follow counts and "did I already like this" checks want real transactions…
 
 </td>
 <td>
 
-**→ Score each on impact times regret, cut the lowest.** If it slips a week, what breaks and who's waiting? "Nothing and nobody" is your cut.
+**→ Default to PostgreSQL for a social app.** Social data is deeply relational (friends, follows, likes, comments), and Postgres handles those connections natively. The safe, right choice for most new social apps.
 
-**→ Separate loud from important.** The priority screaming at you is usually the nearest deadline, not the biggest stakes.
+**→ It gives you the flexible part too.** Its JSONB column (a schema-less field) holds loose data like settings or feed metadata, so you get MongoDB-style flexibility inside a relational database.
 
-**→ Check for a hidden dependency.** If finishing one unblocks others, its real value is higher than it looks alone.
+**→ When MongoDB would actually win.** If your core data is self-contained documents with no cross-references, and you need huge write volume from day one. Most apps don't hit that for a long time.
 
-**→ Cut, don't shrink all three.** Two done beats three at 70%, because 70% usually can't ship.
+**→ The real early risk with MongoDB: schema drift.** Six months in you have five slightly different shapes of "user" and no clean way to fix it. Postgres forces the structure that saves you later.
 
-**→ Tell whoever owns the cut one, today.** A silent slip becomes a broken promise.
+**→ Next action.** Start on managed Postgres (Supabase, Neon, or RDS); model users, posts, and follows as tables, and use a JSONB column wherever the shape is genuinely fluid.
 
 </td>
 </tr>
