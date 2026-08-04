@@ -1,3 +1,4 @@
 .DS_Store
 gen-log-*.txt
 *.log
+gen-favicon.log
