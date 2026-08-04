@@ -29,8 +29,7 @@ Nails the format. Every default briefing scored 2-3 on the anchored scale (state
 
 The first pass scored dense baselines ~3.3. An LLM judge reads a wall of text effortlessly, so it under-feels the attention cost a human with ADHD pays. Anchoring the scale (dense prose = max 2) dropped those baselines to 2, matching the lived experience. The gap to the styled versions is therefore **wider** than the first pass showed, not narrower.
 
-## Honest caveats
+## Caveats
 
-- **The re-judge was not free.** Re-running the workflow re-ran the generations too, not just the judges (token counts shifted slightly from model randomness). It cost a full run (~540k tokens), not a judge-only pass as first claimed.
-- **The Rundown hallucination is not yet fixed-and-proven.** On the website-status prompt the styled answer still invented details it was not given (staging up, domain pointed, QA passed). The guard rule ("never invent status") is now in the shipped `rundown.md`, but this eval used the pre-guard injected rules, so the fix is untested.
-- Single judge, tokens approximate (words / 0.75), rules injected rather than harness-loaded.
+- **The Rundown hallucination is not fully proven fixed.** On the website-status prompt the styled answer invented details it was not given (staging up, domain pointed, QA passed). A guard rule ("never invent status") is now in `rundown.md`, but this run predated it, so the fix is untested.
+- Single judge; skimmability is a subjective score; word counts are approximate (words / 0.75); the style rules were injected into the prompt rather than loaded as a Claude Code output style (styles do not apply to subagents).

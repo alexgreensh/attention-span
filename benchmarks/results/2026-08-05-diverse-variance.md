@@ -1,7 +1,7 @@
 # Attention-kind vs default — diverse eval with variance
 
 **Date:** 2026-08-05
-**Method:** 12 questions across 8 categories (dev, knowledge work, research, analysis, explanation, writing, lookup), each answered 4 ways on Opus 4.8 — baseline twice, Attention-kind twice, by independent Claude Code subagents. Two runs per cell so the numbers survive model randomness. Output length measured deterministically (words / 0.75); a separate judge subagent scored answer-first, skimmability, unexplained jargon, and correctness. 60 agents, no API key, ~1.7M tokens.
+**Method:** 12 questions across 8 categories (dev, knowledge work, research, analysis, explanation, writing, lookup), each answered 4 ways on Opus 4.8 — baseline twice, Attention-kind twice, by independent Claude Code subagents. Two runs per cell so the numbers survive model randomness. Output length measured deterministically (words / 0.75); a separate judge subagent scored answer-first, skimmability, unexplained jargon, and correctness.
 
 ## Headline (averaged across both runs)
 
