@@ -5,13 +5,17 @@
 
 ## Headline (averaged across both runs)
 
+Skimmability was re-scored with a scale **anchored to an ADHD reader's lived experience** (dense prose caps at 2, no matter how well organized; 5 = full gist from bold lead-ins alone). An earlier generic-scale pass rated the dense baselines ~3.3, which was too generous, an LLM judge reads a wall of text without feeling the attention cost. Anchored, the baselines land mostly at 2-3.
+
 | Metric | Default | Attention-kind |
 |---|---|---|
-| Output tokens (12 Qs) | 7026 | **3624 (-48%)** |
-| Answer-first | 12/24 (50%) | **24/24 (100%)** |
-| Skimmability (1-5) | 3.29 | **4.92** |
-| Unexplained jargon / answer | 2.79 | **0.96** |
+| Output tokens (12 Qs) | 7160 | **3792 (-47%)** |
+| Answer-first | 15/24 (63%) | **23/24 (96%)** |
+| Skimmability, anchored (1-5) | 2.71 | **4.75** |
+| Unexplained jargon / answer | 2.00 | **0.92** |
 | Correctness | 24/24 | **24/24** |
+
+Baseline skim distribution: mostly **2s and 3s**, only two 4s (answers that genuinely had bullets and headers). Styled: eighteen 5s and six 4s.
 
 **Correctness held at 100% across all 48 answers.** Concise cost nothing.
 
