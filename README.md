@@ -117,7 +117,7 @@ Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to *
 
 <p align="center"><img src="assets/cat-rundown.png" alt="The Rundown cat aims its laser at a checklist, one line lit" width="860"></p>
 
-Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. It trades tokens for scannability, so use it for clarity, not to shrink output. Includes a guard against inventing status it wasn't given.
+Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. **It optimizes for readability and scannability, not brevity**, so reach for it when clarity matters more than length. Includes a guard against inventing status it wasn't given.
 
 The question: **"Summarize where hiring stands: 20 applicants, 5 screened, 2 interviews, no offer, one strong candidate slipping."** Both real Opus 5 eval outputs.
 
