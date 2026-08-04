@@ -8,7 +8,7 @@ A small collection of [output styles](https://code.claude.com/docs/en/output-sty
 
 The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.
 
-First in the set: **Attention-kind**.
+Three so far: **Attention-kind** (the flagship, below), **Laconic** (Spartan, zero warmth), and **Status** (TL;DR briefings). See [the full list](#the-styles).
 
 ## Attention-kind
 
@@ -83,7 +83,7 @@ Global (every project):
 ```bash
 mkdir -p ~/.claude/output-styles
 curl -o ~/.claude/output-styles/attention-kind.md \
-  https://raw.githubusercontent.com/USER/attention-span/main/output-styles/attention-kind.md
+  https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md
 ```
 
 Or drop the file into `.claude/output-styles/` inside a single project.
@@ -105,8 +105,10 @@ Or drop the file into `.claude/output-styles/` inside a single project.
 | Style | File | Best for |
 |---|---|---|
 | Attention-kind | [`output-styles/attention-kind.md`](output-styles/attention-kind.md) | ADHD, attention fatigue, anyone tired of walls of text |
+| Laconic | [`output-styles/laconic.md`](output-styles/laconic.md) | Spartan mode: maximum signal, zero warmth, heads-down work |
+| Status | [`output-styles/status.md`](output-styles/status.md) | Briefings, standups, progress updates (TL;DR + checkboxes) |
 
-More coming. Each is one readable markdown file, easy to fork and tune.
+Each is one readable markdown file, easy to adapt.
 
 ## Notes
 
@@ -115,4 +117,4 @@ More coming. Each is one readable markdown file, easy to fork and tune.
 
 ## License
 
-MIT. Use it, fork it, make it kinder.
+AGPL-3.0. See [LICENSE](LICENSE).
