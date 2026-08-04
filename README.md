@@ -20,23 +20,27 @@ Same engineering ability underneath. Only the delivery changes.
 
 ### Before / after
 
-Same question, same answer. **"My Node app is leaking memory in production. Where do I start?"**
+Both columns are **actual eval outputs** for the same question, *"How do I set up environment variables in a Node.js project?"* Both were judged correct. The style cut it from 346 words to 168.
 
-**Default Claude Code:**
+| | Default | Attention-kind |
+|---|---|---|
+| **Opens with** | "Environment variables in Node, from simplest to most robust." (preamble, not the answer) | "**→ Fastest path: a `.env` file plus the built-in `--env-file` flag.**" (the answer) |
+| **Length** | 346 words | 168 words |
+| **Skim test** | 3 headers, dense prose under each | one bold arrow per point, gist reads from the bold alone |
+| **The gotcha** | "everything is a string" buried at the bottom | surfaced as **→ Gotcha: everything in `process.env` is a string** |
+| **Ends with** | a trailing rules list | a concrete next action |
 
-> There are several potential causes for memory leaks in a Node.js application, and diagnosing them typically involves a systematic approach. First, it's worth understanding that memory leaks often stem from unintentionally retained references, such as global variables, closures that capture large objects, event listeners that are never removed, or growing caches that lack an eviction policy. To investigate, you'll want to start by taking heap snapshots using the Chrome DevTools inspector, which you can attach to your running process with the `--inspect` flag. By capturing multiple snapshots over time and comparing them, you can identify which objects are accumulating...
+The styled answer, as generated:
 
-**Attention-kind:**
-
-> **Start by confirming it's a real leak, then snapshot the heap to find what's piling up.**
+> **→ Fastest path: a `.env` file plus the built-in `--env-file` flag.** Node 20.6+ reads it natively, no library needed.
 >
-> **→ Confirm it's real.** Log memory every minute. A **true leak climbs and never comes back down**. Sawtooth up-and-down is just normal cleanup.
+> **→ On older Node (or if you want zero flags): use `dotenv`.** Install it, load it at the top of your entry file.
 >
-> **→ Snapshot the heap.** Run with `node --inspect`, take **two snapshots** a few minutes apart, compare. Whatever **grew between them** is your suspect.
+> **→ Critical: git-ignore your `.env` so secrets never get committed.** The one step people skip and regret.
 >
-> **→ Check the usual culprits.** Listeners never removed, a cache with **no size limit**, timers holding old data.
+> **→ Gotcha: everything in `process.env` is a string.** `process.env.PORT` is `"3000"`, not `3000`.
 >
-> **The one that bites most people:** listeners added per-request and never removed. **Look there first.**
+> Next action: create `.env`, add it to `.gitignore`, run with `node --env-file=.env` on Node 20.6+.
 
 Same information. One of them you can read at a glance.
 
