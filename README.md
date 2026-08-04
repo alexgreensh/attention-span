@@ -76,33 +76,80 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 
 ## Spartan
 
-<img src="assets/cat-spartan.png" alt="A cat in a Spartan helmet aims its laser at one lit line" width="360" align="right">
+<p><img src="assets/cat-spartan.png" alt="A cat in a Spartan helmet aims its laser at one lit line" width="300"></p>
 
 Terse mode with the warmth stripped out. Same arrows and bold as Attention-kind, but blunt and imperative, no cushioning, no transitions, maximum compression. For heads-down work when you want signal, not conversation.
 
-Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to **5.0**, correctness held. [Full results.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
+Same question as above, **"PostgreSQL or MongoDB for a new social app?"** Both real Opus 5 eval outputs.
 
-> **→ Use PostgreSQL.** Social data is relational. Handles friends, follows, likes natively.
->
-> **→ JSONB** covers the loose fields. No second database.
->
-> **→ Mongo only if** documents are self-contained and writes are huge on day one.
+<table>
+<tr>
+<th align="left" width="50%">Default &nbsp;·&nbsp; 449 words</th>
+<th align="left" width="50%">Spartan &nbsp;·&nbsp; 199 words</th>
+</tr>
+<tr valign="top">
+<td>
+
+For a new social app, default to PostgreSQL. Social apps are relationship engines. Users follow users, posts have authors, comments nest under posts, likes join users to content, feeds fan out across a graph. That is a highly relational workload, exactly what a relational database is built for. Joins, foreign keys, and transactional integrity are core features in Postgres, not bolt-ons. Consistency that matters socially: follow counts, like counts, and "did this send" all benefit from ACID transactions. In Mongo you often end up hand-rolling consistency across documents. It is also a good document store: Postgres has native JSONB with indexing, so the flexible-schema pitch for Mongo is largely neutralized…
+
+</td>
+<td>
+
+**→ PostgreSQL. Default to it for a social app.**
+
+**→ Social data is relational.** Users, follows, likes, feeds. All joins between entities. Postgres does joins natively; Mongo makes you fake them in app code.
+
+**→ Postgres does JSON too.** JSONB gives you Mongo's flexible-schema trick when you need it, without giving up structure.
+
+**→ Consistency matters.** Follower counts, likes, payments. Postgres has real transactions across tables. Mongo's are bolted on and slower.
+
+**→ Mongo only if** your data is genuinely document-shaped and schema-chaotic.
+
+</td>
+</tr>
+</table>
+
+Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to **5.0**, correctness held. [Full results.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
 
 ## Rundown
 
-<img src="assets/cat-rundown.png" alt="A cat aims its laser at a checklist, one line lit" width="360" align="right">
+<p><img src="assets/cat-rundown.png" alt="The Rundown cat aims its laser at a checklist, one line lit" width="300"></p>
 
 Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. It trades tokens for scannability, so use it for clarity, not to shrink output. Includes a guard against inventing status it wasn't given.
 
-> **TL;DR:** launch is close, one blocker left.
->
-> ✅ **Site build** shipped
-> 🟡 **Copy** in review
-> ⬜ **Payments** not wired
->
-> **Your move:**
-> 🚀 wire payments first
-> 👀 review copy in parallel
+The question: **"Summarize where hiring stands: 20 applicants, 5 screened, 2 interviews, no offer, one strong candidate slipping."** Both real Opus 5 eval outputs.
+
+<table>
+<tr>
+<th align="left" width="50%">Default &nbsp;·&nbsp; 154 words</th>
+<th align="left" width="50%">Rundown &nbsp;·&nbsp; 127 words</th>
+</tr>
+<tr valign="top">
+<td>
+
+Hiring stands at the top of the funnel and thin at the bottom. Twenty applicants in, five screened, two interviews booked. No offer has gone out yet, and that gap is the problem: one of the strongest candidates is cooling off while the process idles. The numbers: applicants 20, screened 5, interviews booked 2, offers out 0, at risk 1 strong candidate slipping away. The read: this is a speed problem, not a supply problem. The pipeline is healthy up top, but nothing has converted to an offer, and the best prospect is drifting. The highest-value move is to fast-track the slipping candidate before the delay decides for us. Bottleneck: the offer stage…
+
+</td>
+<td>
+
+**TL;DR:** healthy up top, the finish line is stalling, and your best candidate is about to walk.
+
+**Hiring funnel**
+- ☑️ **Applicants:** 20 sourced
+- ☑️ **Screened:** 5 of 20
+- 🟡 **Interviews:** 2 booked, not run
+- ⬜ **Offer:** not drafted
+
+🔴 **Blocker:** one strong candidate slipping. No offer motion means you lose them by default.
+
+**Your move:**
+- 🚀 Fast-track them to an offer today
+- 📞 Run the 2 booked interviews
+- ✍️ Draft the offer now
+
+</td>
+</tr>
+</table>
 
 ## Install
 
