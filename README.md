@@ -2,6 +2,8 @@
 
 **Pay attention, not tokens.**
 
+![A blissful cat in a whirlwind of scattered paper points a laser at one clean block of text](assets/hero.png)
+
 A small collection of [output styles](https://code.claude.com/docs/en/output-styles) for Claude Code that change how it *talks to you*, not how it codes. Answer-first, plain English, easy to skim. Each one is a single markdown file you drop in and switch on.
 
 The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.

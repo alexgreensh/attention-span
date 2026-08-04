@@ -1,0 +1,9 @@
+>>> [outsourcerer] CLOUD DISCLOSURE: delegating to a CLOUD lane (cxnative / gpt-image-2).
+>>>   destination : a third-party API over the network — repo content LEAVES this machine.
+>>>   readable    : this working dir (~/CascadeProjects/Prompts/PERSONAL_OS/PROJECTS/attention-span) + any --with files you passed.
+>>>   also sent   : your agent CLI may inject always-on rule files from $HOME regardless of the scope above: .claude/CLAUDE.md .codeium/windsurf/memories/global_rules.md
+>>>                 they are instructions, so they also steer the delegate. Inspect with: devin rules list
+>>>   training    : paid/non-training route (no training on your data)
+>>>   consent     : remembered grant in ~/.outsourcerer/cloud-consent (revoke: /Users/alexgreenshpun/.claude/plugins/cache/outsourcerer/outsourcerer/0.6.3/skills/outsourcerer/scripts/outsourcerer.sh consent revoke)
+>>> [codex-image] gpt-image-2 (KEYLESS, your Codex/ChatGPT subscription)  tier=budget  -> /Users/alexgreenshpun/CascadeProjects/Prompts/PERSONAL_OS/PROJECTS/attention-span/assets/option-4d.png
+/Users/alexgreenshpun/CascadeProjects/Prompts/PERSONAL_OS/PROJECTS/attention-span/assets/option-4d.png
