@@ -2,7 +2,7 @@
   <img src="assets/banner.svg" alt="Attention Span — pay attention, not tokens" width="820">
 </p>
 
-![Attention Span mascot: a cat aims its laser at the one line that matters](assets/hero.png)
+<p align="center"><img src="assets/hero.png" alt="Attention Span mascot" width="900"></p>
 
 A small collection of [output styles](https://code.claude.com/docs/en/output-styles) for Claude Code that change how it *talks to you*, not how it codes. Answer-first, plain English, easy to skim. Each one is a single markdown file you drop in and switch on.
 
