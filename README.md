@@ -30,7 +30,7 @@ The question: **"Which database should I use for a new social app, PostgreSQL or
 <tr valign="top">
 <td>
 
-For a new social app, start with PostgreSQL, and the bar for choosing MongoDB instead is high. Social apps are relationship-heavy by nature: users follow users, posts belong to users, comments belong to posts, likes connect users to posts. That's a web of connections, exactly what a relational database is built for. In MongoDB you either cram related data into one record and fight size limits, or split it out and end up stitching it back together in your app code anyway. The feed problem makes this worse: timelines, "posts from people you follow," and mutual-friend lookups all lean on the kind of cross-referencing Postgres does in a single query. You also get consistency for free, since follow counts and "did I already like this" checks want real transactions…
+For a new social app, start with PostgreSQL, and the bar for choosing MongoDB instead is high. Social apps are relationship-heavy by nature: users follow users, posts belong to users, comments belong to posts, likes connect users to posts. That's a web of connections, exactly what a relational database is built for. In MongoDB you either cram related data into one record and fight size limits, or split it out and end up stitching it back together in your app code anyway. The feed problem makes this worse: timelines, "posts from people you follow," and mutual-friend lookups all lean on the kind of cross-referencing Postgres does in a single query. You also get consistency for free, since follow counts and "did I already like this" checks want real transactions… *[and it keeps going like this]*
 
 </td>
 <td>
@@ -90,7 +90,7 @@ The question: **"Three priorities this week, room for two, how do I decide what 
 <tr valign="top">
 <td>
 
-Cut the one that fails the cheapest test: if it slipped a week, who actually feels it, and how much? Run all three through four quick filters and the loser usually falls out on its own. Consequence of delay: two of your three probably have soft deadlines you invented and one has a real one, a person waiting, a dependency downstream, a window that closes. Cut from the self-imposed pile, never the someone-is-blocked-on-me pile. Reversibility: some things get harder the longer they wait, others are exactly as easy next week, so cut the one whose cost curve is flat. Who owns it besides you: if a priority can be delegated or done at 80% by someone else, it is a better cut than one only you can do…
+Cut the one that fails the cheapest test: if it slipped a week, who actually feels it, and how much? Run all three through four quick filters and the loser usually falls out on its own. Consequence of delay: two of your three probably have soft deadlines you invented and one has a real one, a person waiting, a dependency downstream, a window that closes. Cut from the self-imposed pile, never the someone-is-blocked-on-me pile. Reversibility: some things get harder the longer they wait, others are exactly as easy next week, so cut the one whose cost curve is flat. Who owns it besides you: if a priority can be delegated or done at 80% by someone else, it is a better cut than one only you can do… *[and it keeps going like this]*
 
 </td>
 <td>
@@ -129,7 +129,7 @@ The question: **"Summarize where hiring stands: 20 applicants, 5 screened, 2 int
 <tr valign="top">
 <td>
 
-Hiring stands at the top of the funnel and thin at the bottom. Twenty applicants in, five screened, two interviews booked. No offer has gone out yet, and that gap is the problem: one of the strongest candidates is cooling off while the process idles. The numbers: applicants 20, screened 5, interviews booked 2, offers out 0, at risk 1 strong candidate slipping away. The read: this is a speed problem, not a supply problem. The pipeline is healthy up top, but nothing has converted to an offer, and the best prospect is drifting. The highest-value move is to fast-track the slipping candidate before the delay decides for us. Bottleneck: the offer stage…
+Hiring stands at the top of the funnel and thin at the bottom. Twenty applicants in, five screened, two interviews booked. No offer has gone out yet, and that gap is the problem: one of the strongest candidates is cooling off while the process idles. The numbers: applicants 20, screened 5, interviews booked 2, offers out 0, at risk 1 strong candidate slipping away. The read: this is a speed problem, not a supply problem. The pipeline is healthy up top, but nothing has converted to an offer, and the best prospect is drifting. The highest-value move is to fast-track the slipping candidate before the delay decides for us. Bottleneck: the offer stage… *[and it keeps going like this]*
 
 </td>
 <td>
