@@ -1,69 +1,86 @@
-# Attention-kind
+# Kind output styles for Claude Code
 
-An ADHD-friendly **output style** for [Claude Code](https://code.claude.com/docs/en/output-styles). It changes how Claude *talks to you*, not how it codes.
+A small collection of [output styles](https://code.claude.com/docs/en/output-styles) that change how Claude Code *talks to you*, not how it codes. Each one is a single markdown file you drop in and switch on.
 
-Claude answers first, keeps it short by default, uses plain English, and expands only on what's actually worth your attention. Every point is spaced out and marked with a `→` so your eyes never have to dig for the answer.
+First in the set: **Attention-kind**.
 
-You can skim just the **bold** and still get the whole thing.
+## Attention-kind
 
-## Who it's for
+An ADHD-friendly style. Claude answers first, keeps it short, drops the jargon, and expands only on what's actually worth your attention. Every point is spaced out and marked with a `→`, and the important words are **bold**, so you can skim just the bold and still get the whole answer.
 
-Anyone whose attention is a limited resource: ADHD, tired, deep in flow, or just done with walls of text. It keeps Claude's full engineering ability intact and only reshapes the delivery.
+Same engineering ability underneath. Only the delivery changes.
 
-## What it does
+**Who it's for:** anyone whose attention is a limited resource. ADHD, tired, deep in flow, or just done with walls of text.
 
-- **Answer first.** The conclusion or fix lands in line one. No wind-up.
+### Before / after
+
+Same question, same answer. **"My Node app is leaking memory in production. Where do I start?"**
+
+**Default Claude Code:**
+
+> There are several potential causes for memory leaks in a Node.js application, and diagnosing them typically involves a systematic approach. First, it's worth understanding that memory leaks often stem from unintentionally retained references, such as global variables, closures that capture large objects, event listeners that are never removed, or growing caches that lack an eviction policy. To investigate, you'll want to start by taking heap snapshots using the Chrome DevTools inspector, which you can attach to your running process with the `--inspect` flag. By capturing multiple snapshots over time and comparing them, you can identify which objects are accumulating...
+
+**Attention-kind:**
+
+> **Start by confirming it's a real leak, then snapshot the heap to find what's piling up.**
+>
+> **→ Confirm it's real.** Log memory every minute. A **true leak climbs and never comes back down**. Sawtooth up-and-down is just normal cleanup.
+>
+> **→ Snapshot the heap.** Run with `node --inspect`, take **two snapshots** a few minutes apart, compare. Whatever **grew between them** is your suspect.
+>
+> **→ Check the usual culprits.** Listeners never removed, a cache with **no size limit**, timers holding old data.
+>
+> **The one that bites most people:** listeners added per-request and never removed. **Look there first.**
+
+Same information. One of them you can read at a glance.
+
+### What changes
+
+- **Answer first.** Conclusion in line one. No wind-up.
 - **Short by default.** Says the least that fully answers, then stops.
-- **Expands only what's vital.** Length becomes a signal that something actually matters.
-- **Plain English, no jargon.** Rare technical terms get a five-word definition, once.
-- **Built to scan.** `→` markers, heavy bold, real blank lines between every point.
-- **Keeps the engineer.** Claude still scopes, verifies, and codes the same way.
+- **Expands only on what's vital**, so length itself signals importance.
+- **Plain English.** Rare technical terms get a five-word definition, once.
+- **Built to scan.** `→` markers, heavy bold, real spacing between points.
+- **Comments too.** Code comments inherit the plain-English "explain the why" rule, but never the chat formatting.
 
 ## Install
 
-**1.** Copy the style into your Claude Code output-styles folder.
+**1.** Copy the style you want into your output-styles folder.
 
-For every project (global):
+Global (every project):
 
 ```bash
 mkdir -p ~/.claude/output-styles
 curl -o ~/.claude/output-styles/attention-kind.md \
-  https://raw.githubusercontent.com/USER/attention-kind/main/output-styles/attention-kind.md
+  https://raw.githubusercontent.com/USER/kind-output-styles/main/output-styles/attention-kind.md
 ```
 
-Or for a single project, drop the file in `.claude/output-styles/` inside that repo.
+Or drop the file into `.claude/output-styles/` inside a single project.
 
-**2.** Turn it on. Run `/config`, pick **Attention-kind** under *Output style*.
+**2.** Run `/config`, pick the style under *Output style*.
 
-> The old `/output-style` command was removed in v2.1.91. Use `/config`, or set it directly (next step).
-
-**3.** To make it the permanent default without the menu, add one line to `~/.claude/settings.json`:
+**3.** Optional, make it the permanent default in `~/.claude/settings.json`:
 
 ```json
-{
-  "outputStyle": "Attention-kind"
-}
+{ "outputStyle": "Attention-kind" }
 ```
 
-**4.** Restart Claude Code or run `/clear`. The style loads once at session start, so it takes effect on the next session.
+**4.** Restart or `/clear`. Styles load once at session start.
 
-## Cost
+**Cost:** ~470 tokens, added once per session, cached after the first request. The "short by default" rule tends to save more output tokens than that over a conversation.
 
-About **470 tokens**, added to the system prompt **once per session**, not per message. Prompt caching covers it after the first request. It's a rounding error, and the "short by default" rule tends to *save* output tokens over a conversation.
+## The styles
 
-## Customize it
+| Style | File | Best for |
+|---|---|---|
+| Attention-kind | [`output-styles/attention-kind.md`](output-styles/attention-kind.md) | ADHD, attention fatigue, anyone tired of walls of text |
 
-The whole thing is one readable markdown file: [`output-styles/attention-kind.md`](output-styles/attention-kind.md). Tune the tone, swap the `→` marker, loosen the bold. It's yours.
-
-Two design choices worth knowing:
-
-- **Each point is its own paragraph**, not a markdown list. Terminal renderers squeeze tight list items together, so paragraphs are the only way to guarantee real spacing.
-- **Chat formatting stays out of your code.** Comments inherit the plain-English "explain the why" rule, but never the arrows or bold.
+More coming. Each is one readable markdown file, easy to fork and tune.
 
 ## Notes
 
-- Applies to the **main conversation only**. Subagents run their own prompt, so they won't inherit it.
-- `keep-coding-instructions: true` is set, so Claude's software-engineering behavior is untouched.
+- Styles apply to the **main conversation only**. Subagents run their own prompt.
+- These keep Claude's coding behavior intact (`keep-coding-instructions: true`).
 
 ## License
 
