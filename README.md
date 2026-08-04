@@ -25,7 +25,7 @@ The question: **"Which database should I use for a new social app, PostgreSQL or
 <table>
 <tr>
 <th align="left" width="50%">Default &nbsp;·&nbsp; 430 words</th>
-<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 120 words</th>
+<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 94 words</th>
 </tr>
 <tr valign="top">
 <td>
@@ -80,30 +80,32 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 
 Terse mode with the warmth stripped out. Same arrows and bold as Attention-kind, but blunt and imperative, no cushioning, no transitions, maximum compression. For heads-down work when you want signal, not conversation.
 
-Same question as above, **"PostgreSQL or MongoDB for a new social app?"** Both real Opus 5 eval outputs.
+The question: **"Three priorities this week, room for two, how do I decide what to cut?"** Both real Opus 5 eval outputs.
 
 <table>
 <tr>
-<th align="left" width="50%">Default &nbsp;·&nbsp; 449 words</th>
-<th align="left" width="50%">Spartan &nbsp;·&nbsp; 199 words</th>
+<th align="left" width="50%">Default &nbsp;·&nbsp; 310 words</th>
+<th align="left" width="50%">Spartan &nbsp;·&nbsp; 168 words</th>
 </tr>
 <tr valign="top">
 <td>
 
-For a new social app, default to PostgreSQL. Social apps are relationship engines. Users follow users, posts have authors, comments nest under posts, likes join users to content, feeds fan out across a graph. That is a highly relational workload, exactly what a relational database is built for. Joins, foreign keys, and transactional integrity are core features in Postgres, not bolt-ons. Consistency that matters socially: follow counts, like counts, and "did this send" all benefit from ACID transactions. In Mongo you often end up hand-rolling consistency across documents. It is also a good document store: Postgres has native JSONB with indexing, so the flexible-schema pitch for Mongo is largely neutralized…
+Cut the one that fails the cheapest test: if it slipped a week, who actually feels it, and how much? Run all three through four quick filters and the loser usually falls out on its own. Consequence of delay: two of your three probably have soft deadlines you invented and one has a real one, a person waiting, a dependency downstream, a window that closes. Cut from the self-imposed pile, never the someone-is-blocked-on-me pile. Reversibility: some things get harder the longer they wait, others are exactly as easy next week, so cut the one whose cost curve is flat. Who owns it besides you: if a priority can be delegated or done at 80% by someone else, it is a better cut than one only you can do…
 
 </td>
 <td>
 
-**→ PostgreSQL. Default to it for a social app.**
+**→ Rank by cost of NOT doing it, not by effort or interest.** Ask each: what breaks if this slips a week? The one with the softest consequence gets cut.
 
-**→ Social data is relational.** Users, follows, likes, feeds. All joins between entities. Postgres does joins natively; Mongo makes you fake them in app code.
+**→ Kill the reversible one.** If a task can wait, be delegated, or restarted later with no penalty, cut it. Protect anything with a **hard deadline** or a **dependency** where others are blocked on you.
 
-**→ Postgres does JSON too.** JSONB gives you Mongo's flexible-schema trick when you need it, without giving up structure.
+**→ Run the regret test.** Friday night, which un-done task stings most? Keep that one. The one you'd shrug at is your cut.
 
-**→ Consistency matters.** Follower counts, likes, payments. Postgres has real transactions across tables. Mongo's are bolted on and slower.
+**→ Separate loud from important.** The priority screaming at you is often just the most **anxious**, not the most valuable. Cut by impact, not by volume.
 
-**→ Mongo only if** your data is genuinely document-shaped and schema-chaotic.
+**→ Do not half-do all three.** Two finished beats three at 66%. Partial work on the third is the trap, it feels productive and ships nothing.
+
+**→ Cut it out loud.** Tell whoever's affected now, not Friday. A cut you flag is a decision, a cut you hide is a **failure with a delay**.
 
 </td>
 </tr>
@@ -132,20 +134,23 @@ Hiring stands at the top of the funnel and thin at the bottom. Twenty applicants
 </td>
 <td>
 
-**TL;DR:** healthy up top, the finish line is stalling, and your best candidate is about to walk.
+TL;DR: Pipeline is healthy up top but the finish line is stalling, and your best candidate is about to walk.
 
 **Hiring funnel**
-- ☑️ **Applicants:** 20 sourced
-- ☑️ **Screened:** 5 of 20
-- 🟡 **Interviews:** 2 booked, not run
-- ⬜ **Offer:** not drafted
+- ☑️ **Applicants in:** 20 sourced
+- ☑️ **Screened:** 5 of 20 done
+- 🟡 **Interviews:** 2 booked, not yet run
+- ⬜ **Offer:** not drafted, not out
 
-🔴 **Blocker:** one strong candidate slipping. No offer motion means you lose them by default.
+🔴 **Blocker:** One strong candidate is slipping. No offer motion means you lose them by default.
 
 **Your move:**
-- 🚀 Fast-track them to an offer today
-- 📞 Run the 2 booked interviews
-- ✍️ Draft the offer now
+- 🚀 Fast-track the strong candidate, skip ahead to offer talk today
+- 📞 Run the 2 booked interviews before deciding
+- 📋 Screen more of the 15 untouched applicants for backup
+- ✍️ Draft the offer now so it is ready to fire
+
+Pick one: save the candidate now, or run the full process and risk losing them?
 
 </td>
 </tr>
@@ -153,9 +158,7 @@ Hiring stands at the top of the funnel and thin at the bottom. Twenty applicants
 
 ## Install
 
-**1.** Copy the style you want into your output-styles folder.
-
-Global (every project):
+**1.** Drop the style into your output-styles folder. Global (every project):
 
 ```bash
 mkdir -p ~/.claude/output-styles
@@ -163,17 +166,17 @@ curl -o ~/.claude/output-styles/attention-kind.md \
   https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md
 ```
 
-Or drop the file into `.claude/output-styles/` inside a single project.
+Or put it in `.claude/output-styles/` inside a single project.
 
-**2.** Run `/config`, pick the style under *Output style*.
-
-**3.** Optional, make it the permanent default in `~/.claude/settings.json`:
+**2.** Set it as your default in `~/.claude/settings.json`. Do this once and it's on every session, forever:
 
 ```json
 { "outputStyle": "Attention-kind" }
 ```
 
-**4.** Restart or `/clear`. Styles load once at session start.
+**3.** Restart or `/clear`. That's it.
+
+Want to try it for one session first? Run `/config` and pick it under *Output style* instead, then set the default above once you're sold.
 
 **Cost:** ~650 tokens, added once per session and cached after the first request. The eval measured ~48% lower output, so it pays for itself within the first couple of replies.
 
