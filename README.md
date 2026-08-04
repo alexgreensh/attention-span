@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/wordmark.svg" alt="Attention Span — pay attention, not tokens" width="780">
+  <img src="assets/banner.svg" alt="Attention Span — pay attention, not tokens" width="820">
 </p>
 
 ![Attention Span mascot: a cat aims its laser at the one line that matters](assets/hero.png)
@@ -8,7 +8,7 @@ A small collection of [output styles](https://code.claude.com/docs/en/output-sty
 
 The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.
 
-Three so far: **Attention-kind** (the flagship, below), **Point Blank** (Spartan, zero warmth), and **Rundown** (TL;DR briefings). See [the full list](#the-styles).
+Three so far: **Attention-kind** (the flagship), **Spartan** (terse, zero warmth), and **Rundown** (TL;DR briefings). Each has its own section below.
 
 ## Attention-kind
 
@@ -74,6 +74,32 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 - **Re-anchors long tasks** and asks one question at a time, so you never lose the thread.
 - **Comments too.** Code comments inherit the plain-English "explain the why" rule, but never the chat formatting.
 
+## Spartan
+
+Terse mode with the warmth stripped out. Same arrows and bold as Attention-kind, but blunt and imperative, no cushioning, no transitions, maximum compression. For heads-down work when you want signal, not conversation.
+
+Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to **5.0**, correctness held. [Full results.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
+
+> **→ Use PostgreSQL.** Social data is relational. Handles friends, follows, likes natively.
+>
+> **→ JSONB** covers the loose fields. No second database.
+>
+> **→ Mongo only if** documents are self-contained and writes are huge on day one.
+
+## Rundown
+
+Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. It trades tokens for scannability, so use it for clarity, not to shrink output. Includes a guard against inventing status it wasn't given.
+
+> **TL;DR:** launch is close, one blocker left.
+>
+> ✅ **Site build** shipped
+> 🟡 **Copy** in review
+> ⬜ **Payments** not wired
+>
+> **Your move:**
+> 🚀 wire payments first
+> 👀 review copy in parallel
+
 ## Install
 
 **1.** Copy the style you want into your output-styles folder.
@@ -105,7 +131,7 @@ Or drop the file into `.claude/output-styles/` inside a single project.
 | Style | File | Best for |
 |---|---|---|
 | Attention-kind | [`output-styles/attention-kind.md`](output-styles/attention-kind.md) | ADHD, attention fatigue, anyone tired of walls of text |
-| Point Blank | [`output-styles/point-blank.md`](output-styles/point-blank.md) | Spartan mode: maximum signal, zero warmth, heads-down work |
+| Spartan | [`output-styles/spartan.md`](output-styles/spartan.md) | Spartan mode: maximum signal, zero warmth, heads-down work |
 | Rundown | [`output-styles/rundown.md`](output-styles/rundown.md) | Briefings, standups, progress updates (TL;DR + checkboxes) |
 
 Each is one readable markdown file, easy to adapt.
