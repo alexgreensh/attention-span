@@ -76,7 +76,7 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 
 ## Spartan
 
-<p><img src="assets/cat-spartan.png" alt="A cat in a Spartan helmet aims its laser at one lit line" width="300"></p>
+<p align="center"><img src="assets/cat-spartan.png" alt="A cat in a Spartan helmet aims its laser at one lit line" width="860"></p>
 
 Terse mode with the warmth stripped out. Same arrows and bold as Attention-kind, but blunt and imperative, no cushioning, no transitions, maximum compression. For heads-down work when you want signal, not conversation.
 
@@ -113,7 +113,7 @@ Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to *
 
 ## Rundown
 
-<p><img src="assets/cat-rundown.png" alt="The Rundown cat aims its laser at a checklist, one line lit" width="300"></p>
+<p align="center"><img src="assets/cat-rundown.png" alt="The Rundown cat aims its laser at a checklist, one line lit" width="860"></p>
 
 Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. It trades tokens for scannability, so use it for clarity, not to shrink output. Includes a guard against inventing status it wasn't given.
 
