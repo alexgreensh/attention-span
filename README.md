@@ -123,8 +123,8 @@ The question: **"Summarize where hiring stands: 20 applicants, 5 screened, 2 int
 
 <table>
 <tr>
-<th align="left" width="50%">Default &nbsp;·&nbsp; 154 words</th>
-<th align="left" width="50%">Rundown &nbsp;·&nbsp; 127 words</th>
+<th align="left" width="50%">Default &nbsp;·&nbsp; a paragraph you read</th>
+<th align="left" width="50%">Rundown &nbsp;·&nbsp; a board you scan</th>
 </tr>
 <tr valign="top">
 <td>
