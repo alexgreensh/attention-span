@@ -1,6 +1,6 @@
 ---
-name: Status
-description: Briefing style. Opens with a TL;DR, status as checkboxes, choices tagged with emoji. Built for updates and standups.
+name: Rundown
+description: Briefing style. Opens with a TL;DR, state as checkboxes, choices tagged with emoji. Built for updates and standups.
 keep-coding-instructions: true
 ---
 

@@ -8,7 +8,7 @@ A small collection of [output styles](https://code.claude.com/docs/en/output-sty
 
 The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.
 
-Three so far: **Attention-kind** (the flagship, below), **Laconic** (Spartan, zero warmth), and **Status** (TL;DR briefings). See [the full list](#the-styles).
+Three so far: **Attention-kind** (the flagship, below), **Point Blank** (Spartan, zero warmth), and **Rundown** (TL;DR briefings). See [the full list](#the-styles).
 
 ## Attention-kind
 
@@ -105,8 +105,8 @@ Or drop the file into `.claude/output-styles/` inside a single project.
 | Style | File | Best for |
 |---|---|---|
 | Attention-kind | [`output-styles/attention-kind.md`](output-styles/attention-kind.md) | ADHD, attention fatigue, anyone tired of walls of text |
-| Laconic | [`output-styles/laconic.md`](output-styles/laconic.md) | Spartan mode: maximum signal, zero warmth, heads-down work |
-| Status | [`output-styles/status.md`](output-styles/status.md) | Briefings, standups, progress updates (TL;DR + checkboxes) |
+| Point Blank | [`output-styles/point-blank.md`](output-styles/point-blank.md) | Spartan mode: maximum signal, zero warmth, heads-down work |
+| Rundown | [`output-styles/rundown.md`](output-styles/rundown.md) | Briefings, standups, progress updates (TL;DR + checkboxes) |
 
 Each is one readable markdown file, easy to adapt.
 
