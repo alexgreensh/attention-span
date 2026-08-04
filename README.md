@@ -20,12 +20,12 @@ Same engineering ability underneath. Only the delivery changes.
 
 ### Before / after
 
-The question: **"Which database should I use for a new social app, PostgreSQL or MongoDB?"** Same model, same correct answer, both **real eval outputs**. One is a wall you have to read. The other you can skim in five seconds.
+The question: **"Which database should I use for a new social app, PostgreSQL or MongoDB?"** Same answer, before and after the style.
 
 <table>
 <tr>
 <th align="left" width="50%">Default &nbsp;·&nbsp; 430 words</th>
-<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 267 words</th>
+<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 120 words</th>
 </tr>
 <tr valign="top">
 <td>
@@ -35,15 +35,15 @@ For a new social app, start with PostgreSQL, and the bar for choosing MongoDB in
 </td>
 <td>
 
-**→ Default to PostgreSQL for a social app.** Social data is deeply relational (friends, follows, likes, comments), and Postgres handles those connections natively. The safe, right choice for most new social apps.
+**→ Use PostgreSQL.** A social app is all relationships (friends, follows, likes), and Postgres handles those natively. Right for ~90% of new social apps.
 
-**→ It gives you the flexible part too.** Its JSONB column (a schema-less field) holds loose data like settings or feed metadata, so you get MongoDB-style flexibility inside a relational database.
+**→ You keep flexibility.** Its JSONB column stores schema-less data inside the same database, so you get MongoDB's looseness without leaving Postgres.
 
-**→ When MongoDB would actually win.** If your core data is self-contained documents with no cross-references, and you need huge write volume from day one. Most apps don't hit that for a long time.
+**→ Pick MongoDB only if** your data is self-contained documents with no links, and you need massive write volume on day one.
 
-**→ The real early risk with MongoDB: schema drift.** Six months in you have five slightly different shapes of "user" and no clean way to fix it. Postgres forces the structure that saves you later.
+**→ The early trap with MongoDB:** six months in, five different shapes of "user" and no clean fix. Postgres forces the structure.
 
-**→ Next action.** Start on managed Postgres (Supabase, Neon, or RDS); model users, posts, and follows as tables, and use a JSONB column wherever the shape is genuinely fluid.
+**→ Next:** start on managed Postgres (Supabase, Neon, RDS).
 
 </td>
 </tr>

@@ -44,6 +44,7 @@ The decline-a-meeting email barely changed (-4%). That is the style working corr
 
 ## Caveats
 
+- **How the style was applied.** Output styles only load into the main Claude Code conversation, not subagents. So the eval injected a condensed version of the style's rules into each styled agent's prompt. That is a faithful proxy for the effect, but it is not the literal output-style file loaded by the harness, and the condensed rules were slightly looser than the full file. Real in-session use should be at least this good, likely tighter.
 - Token counts are approximate (words / 0.75), applied identically to every arm, so relative cuts are sound.
 - Judge is a single Claude subagent; scores are directional, not calibrated against human raters.
 - One model (Opus 4.8). The earlier 2026-08-04 run showed Opus 5 behaves the same, with slightly larger cuts.
