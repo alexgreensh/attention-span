@@ -40,6 +40,16 @@ Same question, same answer. **"My Node app is leaking memory in production. Wher
 
 Same information. One of them you can read at a glance.
 
+### Does it actually help? (measured)
+
+Ran 6 real dev questions through default vs Attention-kind, on Opus 4.8 and Opus 5, scored by a separate judge. [Full results.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
+
+- **~48% fewer output tokens** (43% on Opus 4.8, 52% on Opus 5).
+- **Answer-first: 67% → 100%.**
+- **Skimmability: 3.7 → 5.0** on a 1-5 scale.
+- **Unexplained jargon: ~4 → ~1 term per answer.**
+- **Correctness held at 100%.** Shorter cost nothing.
+
 ### What changes
 
 - **Answer first.** Conclusion in line one. No wind-up.
