@@ -76,6 +76,8 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 
 ## Spartan
 
+<img src="assets/cat-spartan.png" alt="A cat in a Spartan helmet aims its laser at one lit line" width="360" align="right">
+
 Terse mode with the warmth stripped out. Same arrows and bold as Attention-kind, but blunt and imperative, no cushioning, no transitions, maximum compression. For heads-down work when you want signal, not conversation.
 
 Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to **5.0**, correctness held. [Full results.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
@@ -87,6 +89,8 @@ Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to *
 > **→ Mongo only if** documents are self-contained and writes are huge on day one.
 
 ## Rundown
+
+<img src="assets/cat-rundown.png" alt="A cat aims its laser at a checklist, one line lit" width="360" align="right">
 
 Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. It trades tokens for scannability, so use it for clarity, not to shrink output. Includes a guard against inventing status it wasn't given.
 

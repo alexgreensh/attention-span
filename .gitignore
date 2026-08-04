@@ -1,4 +1,5 @@
-.DS_Store
-gen-log-*.txt
 *.log
+.DS_Store
+gen-cat-*.log
 gen-favicon.log
+gen-log-*.txt
