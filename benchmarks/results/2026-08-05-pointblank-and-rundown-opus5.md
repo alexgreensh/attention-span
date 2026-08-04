@@ -1,35 +1,36 @@
-# Point Blank + Rundown — focused eval (Opus 5)
+# Spartan + Rundown — focused eval (Opus 5)
 
 **Date:** 2026-08-05
-**Method:** Opus 5 only. Point Blank tested on 4 general questions, Rundown on 3 briefing-shaped prompts, baseline vs styled, judged by a separate Opus 5 subagent. 21 agents, ~592k tokens. Style rules injected into the styled agent's prompt (output styles do not apply to subagents).
+**Method:** Opus 5 only. Spartan tested on 4 general questions, Rundown on 3 briefing prompts, baseline vs styled, judged by a separate Opus 5 subagent. Style rules injected into the styled agent's prompt (output styles do not apply to subagents). Two judging passes: first with a generic 1-5 skimmability scale, then re-judged with a scale **anchored to an ADHD reader's lived experience** (dense prose caps at 2, no matter how organized; 5 = full gist from bold lead-ins alone).
 
-## Point Blank (Spartan)
+## Spartan (terse)
 
-| Metric | Default | Point Blank |
+| Metric | Default | Spartan |
 |---|---|---|
-| Output tokens (4 Qs) | 2511 | **1201 (-52%)** |
-| Skimmability (1-5) | 3.50 | **5.00** |
+| Output tokens (4 Qs) | 2486 | **1250 (-50%)** |
+| Skimmability, anchored (1-5) | 3.25 | **5.00** |
 | Answer-first | 4/4 | 4/4 |
 | Correctness | 4/4 | 4/4 |
 
-**Verdict: strong.** Cuts harder than Attention-kind (-52% vs -48%) while staying correct and answer-first. On the React question it went 923 → 373 tokens (-60%) with every technical claim intact. This is the heads-down power-user style working as intended.
+Cuts as hard as Attention-kind while staying correct and answer-first. The anchored baseline still landed at 3-4 on two questions (React, four-day-week) because those default answers genuinely had bold bullets and headers, not pure walls. The dense ones dropped to 2.
 
 ## Rundown (TL;DR + emoji)
 
 | Metric | Default | Rundown |
 |---|---|---|
-| Output tokens (3 Qs) | 751 | **597 (-21%)** |
-| Skimmability (1-5) | 3.33 | **5.00** |
+| Output tokens (3 Qs) | 852 | **510 (-40%)** |
+| Skimmability, anchored (1-5) | 2.33 | **5.00** |
 | Answer-first | 3/3 | 3/3 |
 | Correctness | 3/3 | 3/3 |
 
-**Verdict: nails the format, two honest caveats.**
+Nails the format. Every default briefing scored 2-3 on the anchored scale (state buried in prose); Rundown hit 5 every time.
 
-- **It hallucinated on one prompt.** Asked for a website-launch status, the styled answer invented specifics that were never given (deploy pipeline, staging, domain wired). The checklist format tempts the model to fill rows it has no data for. **Fix applied:** added a rule to the style, "Never invent status; report only what you were given; unknown state is ⬜ or 'unknown.'"
-- **It can run longer on already-short input.** The standup prompt went 167 → 207 tokens (+24%), because adding TL;DR + checklist + emoji scaffolding to a tiny brief costs more than it saves. Rundown is a format for clarity, not a compression play; token savings are a side effect, not the point.
+## What the anchored re-judge changed
 
-## Takeaways
+The first pass scored dense baselines ~3.3. An LLM judge reads a wall of text effortlessly, so it under-feels the attention cost a human with ADHD pays. Anchoring the scale (dense prose = max 2) dropped those baselines to 2, matching the lived experience. The gap to the styled versions is therefore **wider** than the first pass showed, not narrower.
 
-- Point Blank is a clean win on the same axis as Attention-kind: fewer tokens, more skimmable, still correct.
-- Rundown trades tokens for scannability and structure. Use it for briefings, not to shrink output. Watch the hallucination tendency; the new guard rule should curb it (not yet re-measured).
-- Same caveat as prior runs: token counts approximate (words / 0.75), single judge, rules injected rather than harness-loaded.
+## Honest caveats
+
+- **The re-judge was not free.** Re-running the workflow re-ran the generations too, not just the judges (token counts shifted slightly from model randomness). It cost a full run (~540k tokens), not a judge-only pass as first claimed.
+- **The Rundown hallucination is not yet fixed-and-proven.** On the website-status prompt the styled answer still invented details it was not given (staging up, domain pointed, QA passed). The guard rule ("never invent status") is now in the shipped `rundown.md`, but this eval used the pre-guard injected rules, so the fix is untested.
+- Single judge, tokens approximate (words / 0.75), rules injected rather than harness-loaded.
