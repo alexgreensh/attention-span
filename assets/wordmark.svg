@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <rect x="2" y="2" width="1196" height="296" rx="24" fill="#fbfbfa" stroke="#e6e8eb" stroke-width="2"/>
+  <!-- wordmark -->
+  <text x="80" y="150" font-size="82" font-weight="800" letter-spacing="-2" fill="#1a1c1f">Attention Span</text>
+  <text x="82" y="205" font-size="30" font-weight="700" letter-spacing="0" fill="#e8590c">pay attention, not tokens</text>
+
+  <!-- laser + text-bar motif on the right -->
+  <g transform="translate(900,70)">
+    <rect x="60"  y="0"   width="150" height="16" rx="8" fill="#d3d7dc"/>
+    <rect x="60"  y="34"  width="180" height="16" rx="8" fill="#d3d7dc"/>
+    <rect x="60"  y="68"  width="200" height="16" rx="8" fill="#1a1c1f"/>
+    <rect x="60"  y="102" width="140" height="16" rx="8" fill="#d3d7dc"/>
+    <rect x="60"  y="136" width="170" height="16" rx="8" fill="#d3d7dc"/>
+    <!-- laser beam from lower-left to the lit (dark) bar -->
+    <line x1="-40" y1="150" x2="52" y2="76" stroke="#e8590c" stroke-width="3"/>
+    <circle cx="52" cy="76" r="9" fill="#e8590c"/>
+    <circle cx="52" cy="76" r="16" fill="#e8590c" opacity="0.22"/>
+  </g>
+</svg>

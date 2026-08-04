@@ -1,6 +1,6 @@
-# Attention Span
-
-**Pay attention, not tokens.**
+<p align="center">
+  <img src="assets/wordmark.svg" alt="Attention Span — pay attention, not tokens" width="780">
+</p>
 
 ![A blissful cat in a whirlwind of scattered paper points a laser at one clean block of text](assets/hero.png)
 
