@@ -46,13 +46,15 @@ Same information. One of them you can read at a glance.
 
 ### Does it actually help? (measured)
 
-Ran 6 real dev questions through default vs Attention-kind, on Opus 4.8 and Opus 5, scored by a separate judge. [Full results.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
+12 questions across 8 categories (dev, research, analysis, explaining, writing, quick lookups), each answered 4 times, two runs averaged, scored by a separate judge. [Full results.](benchmarks/results/2026-08-05-diverse-variance.md)
 
-- **~48% fewer output tokens** (43% on Opus 4.8, 52% on Opus 5).
-- **Answer-first: 67% → 100%.**
-- **Skimmability: 3.7 → 5.0** on a 1-5 scale.
-- **Unexplained jargon: ~4 → ~1 term per answer.**
-- **Correctness held at 100%.** Shorter cost nothing.
+- **48% fewer output tokens.**
+- **Answer-first: 50% → 100%.** The default buried the answer under preamble half the time.
+- **Skimmability: 3.3 → 4.9** on a 1-5 scale.
+- **Unexplained jargon: 2.8 → 1.0 terms per answer.**
+- **Correctness held at 100%** across all 48 answers. Shorter cost nothing.
+
+It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cut as hard as debugging. The one place it barely moves is already-short output, a two-line email only shrank 4%, because the style trims rambling and leaves tight answers alone. The gains scale with how much Claude would have over-explained. [Earlier dev-only run, Opus 4.8 vs 5.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
 
 ### What changes
 
