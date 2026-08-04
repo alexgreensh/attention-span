@@ -20,27 +20,34 @@ Same engineering ability underneath. Only the delivery changes.
 
 ### Before / after
 
-Both columns are **actual eval outputs** for the same question, *"How do I set up environment variables in a Node.js project?"* Both were judged correct. The style cut it from 346 words to 168.
+Same question, same model, same correct answer. *"I have three priorities this week and can only finish two. How do I decide what to cut?"* Both are **real eval outputs**. One is a wall you have to read. The other you can skim in five seconds.
 
-| | Default | Attention-kind |
-|---|---|---|
-| **Opens with** | "Environment variables in Node, from simplest to most robust." (preamble, not the answer) | "**→ Fastest path: a `.env` file plus the built-in `--env-file` flag.**" (the answer) |
-| **Length** | 346 words | 168 words |
-| **Skim test** | 3 headers, dense prose under each | one bold arrow per point, gist reads from the bold alone |
-| **The gotcha** | "everything is a string" buried at the bottom | surfaced as **→ Gotcha: everything in `process.env` is a string** |
-| **Ends with** | a trailing rules list | a concrete next action |
+<table>
+<tr>
+<th align="left" width="50%">Default &nbsp;·&nbsp; 385 words</th>
+<th align="left" width="50%">Attention-kind &nbsp;·&nbsp; 196 words</th>
+</tr>
+<tr valign="top">
+<td>
 
-The styled answer, as generated:
+You've got three priorities and room for two, so the real question isn't "which is best?" but "which one survives being cut?" Run each through four filters, in order. First, consequence of delay: if this slips a week, what actually happens, something breaks or someone's mildly annoyed? Second, who's downstream, a task that unblocks other people is worth more than one that only touches you. Third, cost of the switch, some things get cheaper if you wait and some get more expensive, so cut the one that ages best. Fourth, the regret test: fast-forward to Friday, which un-done item makes you wince hardest? Where this usually lands: keep the hard-deadline one and the one that unblocks others, and cut the self-imposed, reversible one even if it's the one you most want to do…
 
-> **→ Fastest path: a `.env` file plus the built-in `--env-file` flag.** Node 20.6+ reads it natively, no library needed.
->
-> **→ On older Node (or if you want zero flags): use `dotenv`.** Install it, load it at the top of your entry file.
->
-> **→ Critical: git-ignore your `.env` so secrets never get committed.** The one step people skip and regret.
->
-> **→ Gotcha: everything in `process.env` is a string.** `process.env.PORT` is `"3000"`, not `3000`.
->
-> Next action: create `.env`, add it to `.gitignore`, run with `node --env-file=.env` on Node 20.6+.
+</td>
+<td>
+
+**→ Score each on impact times regret, cut the lowest.** If it slips a week, what breaks and who's waiting? "Nothing and nobody" is your cut.
+
+**→ Separate loud from important.** The priority screaming at you is usually the nearest deadline, not the biggest stakes.
+
+**→ Check for a hidden dependency.** If finishing one unblocks others, its real value is higher than it looks alone.
+
+**→ Cut, don't shrink all three.** Two done beats three at 70%, because 70% usually can't ship.
+
+**→ Tell whoever owns the cut one, today.** A silent slip becomes a broken promise.
+
+</td>
+</tr>
+</table>
 
 Same information. One of them you can read at a glance.
 
