@@ -1,6 +1,10 @@
-# Kind output styles for Claude Code
+# Attention Span
 
-A small collection of [output styles](https://code.claude.com/docs/en/output-styles) that change how Claude Code *talks to you*, not how it codes. Each one is a single markdown file you drop in and switch on.
+**Pay attention, not tokens.**
+
+A small collection of [output styles](https://code.claude.com/docs/en/output-styles) for Claude Code that change how it *talks to you*, not how it codes. Answer-first, plain English, easy to skim. Each one is a single markdown file you drop in and switch on.
+
+The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.
 
 First in the set: **Attention-kind**.
 
@@ -52,7 +56,7 @@ Global (every project):
 ```bash
 mkdir -p ~/.claude/output-styles
 curl -o ~/.claude/output-styles/attention-kind.md \
-  https://raw.githubusercontent.com/USER/kind-output-styles/main/output-styles/attention-kind.md
+  https://raw.githubusercontent.com/USER/attention-span/main/output-styles/attention-kind.md
 ```
 
 Or drop the file into `.claude/output-styles/` inside a single project.
