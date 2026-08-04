@@ -70,6 +70,8 @@ It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cu
 - **Expands only on what's vital**, so length itself signals importance.
 - **Plain English.** Rare technical terms get a five-word definition, once.
 - **Built to scan.** `→` markers, heavy bold, real spacing between points.
+- **No repetition.** Each point makes one distinct argument, never restated or re-argued.
+- **Re-anchors long tasks** and asks one question at a time, so you never lose the thread.
 - **Comments too.** Code comments inherit the plain-English "explain the why" rule, but never the chat formatting.
 
 ## Install
@@ -96,7 +98,7 @@ Or drop the file into `.claude/output-styles/` inside a single project.
 
 **4.** Restart or `/clear`. Styles load once at session start.
 
-**Cost:** ~470 tokens, added once per session, cached after the first request. The "short by default" rule tends to save more output tokens than that over a conversation.
+**Cost:** ~650 tokens, added once per session and cached after the first request. The eval measured ~48% lower output, so it pays for itself within the first couple of replies.
 
 ## The styles
 
