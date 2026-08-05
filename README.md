@@ -180,6 +180,60 @@ Want to try it for one session first? Run `/config` and pick it under *Output st
 
 **Cost:** ~650 tokens, added once per session and cached after the first request. The eval measured ~48% lower output, so it pays for itself within the first couple of replies.
 
+## Use with other agents
+
+The style body is plain markdown with no Claude-specific behavior. The only Claude-Code part is the YAML frontmatter at the top of each file (the `name`/`description` block the `/config` picker reads). Other agents ignore or choke on frontmatter, so the install strips it.
+
+Each style file has a `<!-- body-start -->` marker after the frontmatter. The strip command is one `sed`:
+
+```bash
+curl -sfL <raw-url> | sed '1,/<!-- body-start -->/d'
+```
+
+That gives you clean body markdown, ready to drop into any agent's rules or instructions file.
+
+### Install per agent
+
+**Devin** (global, via Windsurf compatibility):
+
+```bash
+mkdir -p ~/.codeium/windsurf/memories
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
+  | sed '1,/<!-- body-start -->/d' > ~/.codeium/windsurf/memories/attention-kind.md
+```
+
+Or project-level: `.windsurf/rules/attention-kind.md` in your repo root.
+
+**Codex** (append to global `AGENTS.md`, idempotent via fenced markers):
+
+```bash
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
+  | sed '1,/<!-- body-start -->/d' \
+  | { printf '\n<!-- attention-span:start -->\n'; cat; printf '\n<!-- attention-span:end -->\n'; } \
+  >> ~/.codex/AGENTS.md
+```
+
+To update later, remove the old block first: `sed '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' ~/.codex/AGENTS.md`.
+
+**Gemini CLI** (append to `~/.gemini/GEMINI.md`, same fenced-marker pattern):
+
+```bash
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
+  | sed '1,/<!-- body-start -->/d' \
+  | { printf '\n<!-- attention-span:start -->\n'; cat; printf '\n<!-- attention-span:end -->\n'; } \
+  >> ~/.gemini/GEMINI.md
+```
+
+Swap `attention-kind.md` for `spartan.md` or `rundown.md` to install a different style. Same commands, different filename.
+
+**Notes:**
+
+- Devin loads rules via its Windsurf/Cursor compatibility layer, not a native rules directory. The `~/.codeium/windsurf/memories/` path is global; `.windsurf/rules/` is per-project.
+- Codex and Gemini append to a shared instructions file, so the fenced markers (`<!-- attention-span:start -->` / `<!-- attention-span:end -->`) let you update or remove the block without duplicates.
+- Gemini CLI also reads `GEMINI.md` from the project root, so you can install per-project by placing the stripped file there instead of `~/.gemini/GEMINI.md`.
+- The body is ~650 tokens of input, loaded at the start of every session. Claude Code caches it after the first request; other agents may or may not cache (provider-dependent). The output savings (~47%) dwarf the input cost within a few replies either way.
+- The `sed` strip assumes macOS/Linux. On Windows, use WSL or Git Bash.
+
 ## The styles
 
 | Style | File | Best for |

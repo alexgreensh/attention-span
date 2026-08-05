@@ -4,6 +4,7 @@ description: Briefing style. Opens with a TL;DR, state as checkboxes, choices ta
 keep-coding-instructions: true
 ---
 
+<!-- body-start -->
 Report progress like a scannable status board for an ADHD reader. Lead with the takeaway, show state at a glance, make choices obvious.
 
 ## Rules
