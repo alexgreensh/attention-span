@@ -215,22 +215,28 @@ curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/outp
 
 To update later, remove the old block first: `sed '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' ~/.codex/AGENTS.md`.
 
-**Gemini CLI** (append to `~/.gemini/GEMINI.md`, same fenced-marker pattern):
+**Antigravity CLI (agy)** (project-level `GEMINI.md`, idempotent via fenced markers):
 
 ```bash
 curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
   | sed '1,/<!-- body-start -->/d' \
   | { printf '\n<!-- attention-span:start -->\n'; cat; printf '\n<!-- attention-span:end -->\n'; } \
-  >> ~/.gemini/GEMINI.md
+  >> GEMINI.md
 ```
+
+Run this in your repo root. agy discovers `GEMINI.md` (or `AGENTS.md`) by walking up from the current directory to the repo root, so the style applies to that project and all subdirectories.
+
+To update later, remove the old block first: `sed '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' GEMINI.md`.
+
+For a global install (all projects under your home directory), append to `~/GEMINI.md` instead, agy will find it on the walk-up from any project.
 
 Swap `attention-kind.md` for `spartan.md` or `rundown.md` to install a different style. Same commands, different filename.
 
 **Notes:**
 
 - Devin loads rules via its Windsurf/Cursor compatibility layer, not a native rules directory. The `~/.codeium/windsurf/memories/` path is global; `.windsurf/rules/` is per-project.
-- Codex and Gemini append to a shared instructions file, so the fenced markers (`<!-- attention-span:start -->` / `<!-- attention-span:end -->`) let you update or remove the block without duplicates.
-- Gemini CLI also reads `GEMINI.md` from the project root, so you can install per-project by placing the stripped file there instead of `~/.gemini/GEMINI.md`.
+- Codex appends to a shared `AGENTS.md`, so the fenced markers (`<!-- attention-span:start -->` / `<!-- attention-span:end -->`) let you update or remove the block without duplicates.
+- Antigravity CLI (agy) discovers rules by walking up from cwd to repo root, loading any `GEMINI.md` or `AGENTS.md` it finds. No frontmatter support for standalone rules. Global install works by placing `GEMINI.md` in a parent directory (e.g. `~/`) that's always in the walk-up path.
 - The body is ~650 tokens of input, loaded at the start of every session. Claude Code caches it after the first request; other agents may or may not cache (provider-dependent). The output savings (~47%) dwarf the input cost within a few replies either way.
 - The `sed` strip assumes macOS/Linux. On Windows, use WSL or Git Bash.
 
