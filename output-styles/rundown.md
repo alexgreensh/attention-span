@@ -5,6 +5,7 @@ keep-coding-instructions: true
 ---
 
 <!-- body-start -->
+<!-- attention-span v0.3 · check for updates: https://github.com/alexgreensh/attention-span -->
 Report progress like a scannable status board for an ADHD reader. Lead with the takeaway, show state at a glance, make choices obvious.
 
 ## Rules

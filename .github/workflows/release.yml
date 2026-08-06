@@ -1,0 +1,69 @@
+name: Release
+
+# Cut a GitHub Release when a version tag is pushed (e.g. `git tag 0.3 && git push origin 0.3`).
+# The job refuses to publish if VERSION, the in-file style markers, and the tag disagree,
+# so a release can never ship with drifted version numbers.
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify version alignment
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          FILE_VERSION="$(tr -d '[:space:]' < VERSION)"
+
+          if [ "$TAG" != "$FILE_VERSION" ]; then
+            echo "::error::Tag ($TAG) does not match VERSION file ($FILE_VERSION). Bump VERSION before tagging."
+            exit 1
+          fi
+
+          fail=0
+          for f in output-styles/*.md; do
+            if ! grep -q "attention-span v${FILE_VERSION} " "$f"; then
+              echo "::error::$f is missing the 'attention-span v${FILE_VERSION}' marker."
+              fail=1
+            fi
+          done
+          [ "$fail" -eq 0 ] || { echo "::error::Fix the in-file version markers to match VERSION, then re-tag."; exit 1; }
+
+          echo "Version alignment OK: tag, VERSION, and all style markers are $FILE_VERSION."
+
+      - name: Extract changelog section
+        id: notes
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          # Pull the block under "## <TAG>" up to the next "## " heading.
+          awk -v v="## ${TAG}" '
+            $0 == v {grab=1; next}
+            grab && /^## / {exit}
+            grab {print}
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "No CHANGELOG entry for ${TAG}; using a generic note."
+            printf 'Release %s.\n' "$TAG" > release-notes.md
+          fi
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes-file release-notes.md \
+            --verify-tag
