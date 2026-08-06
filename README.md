@@ -198,8 +198,8 @@ That gives you clean body markdown, ready to drop into any agent's rules or inst
 
 ```bash
 mkdir -p ~/.codeium/windsurf/memories
-curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
-  | sed '1,/<!-- body-start -->/d' > ~/.codeium/windsurf/memories/attention-kind.md
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md -o /tmp/attention-span.md \
+  && sed '1,/<!-- body-start -->/d' /tmp/attention-span.md > ~/.codeium/windsurf/memories/attention-kind.md
 ```
 
 Or project-level: `.windsurf/rules/attention-kind.md` in your repo root.
@@ -207,26 +207,23 @@ Or project-level: `.windsurf/rules/attention-kind.md` in your repo root.
 **Codex** (append to global `AGENTS.md`, idempotent via fenced markers):
 
 ```bash
-curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
-  | sed '1,/<!-- body-start -->/d' \
-  | { printf '\n<!-- attention-span:start -->\n'; cat; printf '\n<!-- attention-span:end -->\n'; } \
-  >> ~/.codex/AGENTS.md
+mkdir -p ~/.codex
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md -o /tmp/attention-span.md \
+  && { printf '\n<!-- attention-span:start -->\n'; sed '1,/<!-- body-start -->/d' /tmp/attention-span.md; printf '<!-- attention-span:end -->\n'; } >> ~/.codex/AGENTS.md
 ```
 
-To update later, remove the old block first: `sed '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' ~/.codex/AGENTS.md`.
+To update later, remove the old block first (in place), then re-run the install: `sed -i.bak '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' ~/.codex/AGENTS.md`.
 
 **Antigravity CLI (agy)** (project-level `GEMINI.md`, idempotent via fenced markers):
 
 ```bash
-curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md \
-  | sed '1,/<!-- body-start -->/d' \
-  | { printf '\n<!-- attention-span:start -->\n'; cat; printf '\n<!-- attention-span:end -->\n'; } \
-  >> GEMINI.md
+curl -sfL https://raw.githubusercontent.com/alexgreensh/attention-span/main/output-styles/attention-kind.md -o /tmp/attention-span.md \
+  && { printf '\n<!-- attention-span:start -->\n'; sed '1,/<!-- body-start -->/d' /tmp/attention-span.md; printf '<!-- attention-span:end -->\n'; } >> GEMINI.md
 ```
 
 Run this in your repo root. agy discovers `GEMINI.md` (or `AGENTS.md`) by walking up from the current directory to the repo root, so the style applies to that project and all subdirectories.
 
-To update later, remove the old block first: `sed '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' GEMINI.md`.
+To update later, remove the old block first (in place), then re-run the install: `sed -i.bak '/<!-- attention-span:start -->/,/<!-- attention-span:end -->/d' GEMINI.md`.
 
 For a global install (all projects under your home directory), append to `~/GEMINI.md` instead, agy will find it on the walk-up from any project.
 
