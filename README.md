@@ -74,6 +74,10 @@ Same information. One of them you can read at a glance.
 
 It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cut as hard as debugging. The one place it barely moves is already-short output, a two-line email only shrank 4%, because the style trims rambling and leaves tight answers alone. The gains scale with how much Claude would have over-explained. [Earlier dev-only run, Opus 4.8 vs 5.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
 
+### Does it cost work quality? (real usage, not eval questions)
+
+The runs above measure synthetic questions. This one measures real work. In a blind, observational review of 44 real historical sessions across 4 task types, split at the first config-level output-style adoption, turning output styles on showed no statistically significant drop in task quality and no sign of degradation; on difficulty-matched code work the two were indistinguishable. It shows no quality cost in day-to-day use. [Full results, method, and limitations.](benchmarks/results/2026-08-07-real-session-quality-retrospective.md)
+
 ### What changes
 
 - **Answer first.** Conclusion in line one. No wind-up.
