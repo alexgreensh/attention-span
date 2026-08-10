@@ -28,9 +28,9 @@ Do exactly this, no extra work:
    - a global style → `~/.claude/settings.json`
    - a project style → `.claude/settings.local.json`, which is personal and not meant to be committed, so a preference never lands in a teammate's checkout
 
-4. Write it. `Read` the settings file first if it is there:
-   - Chosen a style → set the top-level `"outputStyle"` to that style's exact `name:` value: add the key if absent, otherwise change the value in place. If the file does not exist, `Write` it as `{ "outputStyle": "<name>" }`.
-   - Chose `Default` → delete the `"outputStyle"` line from both settings files, wherever it appears. Clearing only one would leave the other still setting a style, so "off" would not be off. If neither has the key, change nothing.
-   - Touch nothing else. Preserve the existing key order, indentation, and trailing commas, and keep the file valid JSON.
+4. Write it. Treat each settings file as JSON, never as lines — line-based edits corrupt a single-key or minified file. `Read` the file first if it is there and parse it as JSON:
+   - Chosen a style → set the top-level `"outputStyle"` to that style's exact `name:` value: add the key if absent, otherwise change the value. Keep every other key untouched, and write valid JSON back. If the file does not exist or is empty, `Write` it as `{ "outputStyle": "<name>" }`.
+   - Chose `Default` → for both settings files, remove the `"outputStyle"` key and write the remaining object back as valid JSON. Clearing only one would leave the other still setting a style, so "off" would not be off. If removing the key empties the object, write `{}`, never an empty file (an empty settings file is invalid JSON and Claude Code will fail to load it). If a file is absent or has no `"outputStyle"`, leave it as is.
+   - Touch nothing else, and keep the file valid JSON at every step. Do not delete lines; edit the parsed structure.
 
 5. Reply in two lines: what the style is now and which file you wrote, and that it takes effect on the next request. If it does not, `/clear` or a restart applies it.
