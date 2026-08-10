@@ -191,6 +191,18 @@ Or put it in `.claude/output-styles/` inside a single project.
 
 **3.** Restart or `/clear`. That's it.
 
+**Rather not edit JSON?** Install the `/style` command and it does step 2 for you:
+
+```bash
+mkdir -p ~/.claude/commands
+curl -o ~/.claude/commands/style.md \
+  https://raw.githubusercontent.com/alexgreensh/attention-span/main/commands/style.md
+```
+
+Then `/style` shows a popup of the styles you have installed. `/style spartan` sets one straight away. `/style default` puts the built-in style back.
+
+It looks in `~/.claude/output-styles/` and in a project's `.claude/output-styles/`. A global style is written to `~/.claude/settings.json`. A project style is written to `.claude/settings.local.json`, so it stays out of your teammates' checkouts.
+
 **Already have it installed?** The styles get updated. Check which version you're on and compare it to the [version badge](https://github.com/alexgreensh/attention-span/releases) above:
 
 ```bash

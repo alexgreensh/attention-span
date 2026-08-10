@@ -2,6 +2,14 @@
 
 Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
+## Unreleased
+
+- **`/style` command.** Sets your style for you, so you don't have to edit `settings.json` by hand.
+  `/style` shows a popup of the styles you have installed. `/style spartan` sets one straight away.
+  `/style default` puts the built-in style back. It looks in both the global and the project
+  `output-styles/` folder, and writes whichever settings file matches, so a project style is never
+  set outside its project. New `commands/` folder, one-line install in the README.
+
 ## 0.3
 
 - **Use with other agents.** The style body is provider-agnostic; only Claude Code's YAML
