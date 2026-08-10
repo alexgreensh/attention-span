@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/alexgreensh/attention-span/releases"><img src="https://img.shields.io/github/v/release/alexgreensh/attention-span?label=version&color=6f42c1" alt="Latest version"></a>
-  <img src="https://img.shields.io/badge/styles-3-blue" alt="3 styles">
+  <img src="https://img.shields.io/github/directory-file-count/alexgreensh/attention-span/output-styles?type=file&extension=md&label=styles&color=blue" alt="styles">
   <img src="https://img.shields.io/badge/output-%E2%88%9247%25%20tokens-2ea44f" alt="47% fewer output tokens">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/alexgreensh/attention-span?color=orange" alt="AGPL-3.0"></a>
   <img src="https://img.shields.io/badge/for-Claude%20Code-d97757" alt="For Claude Code">
