@@ -217,7 +217,7 @@ Want to try it for one session first? Run `/config` and pick it under *Output st
 
 ## Actually want to cut your token bill?
 
-The savings from these styles are real but small, a side effect of shorter replies. The real spend is the *work* your agent does. Two sister tools go after that, and they pair naturally with Attention Span:
+Attention Span is here to make your agents' answers readable and easy to grasp at a glance. The lighter token bill on those answers is a welcome side effect. If cutting token spend is your actual goal, the bigger cost is the *work* your agent does, not how it talks, and two sister tools go right at it, pairing naturally with these styles:
 
 <p align="center"><img src="assets/save-tokens.png" alt="The Outsourcerer wizard and the Attention Span cat vacuuming up ghost tokens with Token Optimizer" width="900"></p>
 
