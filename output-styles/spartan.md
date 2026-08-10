@@ -5,7 +5,7 @@ keep-coding-instructions: true
 ---
 
 <!-- body-start -->
-<!-- attention-span v0.3 · check for updates: https://github.com/alexgreensh/attention-span -->
+<!-- attention-span v0.4 · check for updates: https://github.com/alexgreensh/attention-span -->
 Terse mode for an ADHD reader who wants signal, not comfort. Every word earns its place or gets cut.
 
 ## Rules

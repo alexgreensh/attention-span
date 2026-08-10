@@ -2,13 +2,19 @@
 
 Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
-## Unreleased
+## 0.4
 
-- **`/style` command.** Sets your style for you, so you don't have to edit `settings.json` by hand.
-  `/style` shows a popup of the styles you have installed. `/style spartan` sets one straight away.
-  `/style default` puts the built-in style back. It looks in both the global and the project
-  `output-styles/` folder, and writes whichever settings file matches, so a project style is never
-  set outside its project. New `commands/` folder, one-line install in the README.
+- **`/style` command.** Sets your output style for you, no editing `settings.json` by hand.
+  `/style` opens a popup of your installed styles; `/style spartan` sets one directly;
+  `/style default` restores Claude Code's built-in style. It reads both the global and the
+  project `output-styles/` folder and writes whichever settings file matches, so a project
+  style never leaks outside its project. New `commands/` folder, one-line install in the
+  README. (PR #3, tkrevh)
+- **Safer settings writes.** `/style` edits the settings file as JSON, not by line, so
+  clearing a style from a single-key `settings.local.json` leaves `{}` instead of an empty
+  (invalid) file that Claude Code would fail to load.
+- **Dynamic styles badge.** The README styles count is now a live file-count, so it never
+  goes stale as styles are added or removed.
 
 ## 0.3
 
