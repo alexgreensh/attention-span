@@ -227,7 +227,7 @@ Attention Span is here to make your agents' answers readable and easy to grasp a
 - **Runtime**, e.g. verbose output, re-reads
 - **Behavioral**, e.g. model misrouting, cache expiry, retry loops
 
-...and more in each. On top of that it compresses your output stack, checkpoints and restores your work so your sessions stay continuous across compaction, and puts every token and dollar saved on a live dashboard.
+...and more in each. On top of that it compresses your output stack, checkpoints and restores your work so your sessions stay continuous across compaction, and puts every token and dollar saved on a live dashboard. It's also the only tool that measures your context quality and adjusts to it, because a cheaper session that does worse work is no saving at all.
 
 *Runs on Claude Code, Codex, OpenCode, OpenClaw, Hermes and Copilot.*
 
