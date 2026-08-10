@@ -215,6 +215,34 @@ Want to try it for one session first? Run `/config` and pick it under *Output st
 
 **Cost:** ~650 tokens, added once per session and cached after the first request. The eval measured ~48% lower output, so it pays for itself within the first couple of replies.
 
+## Actually want to cut your token bill?
+
+The savings from these styles are real but small, a side effect of shorter replies. The real spend is the *work* your agent does. Two sister tools go after that, and they pair naturally with Attention Span:
+
+<p align="center"><img src="assets/save-tokens.png" alt="The Outsourcerer wizard and the Attention Span cat vacuuming up ghost tokens with Token Optimizer" width="900"></p>
+
+**[Token Optimizer](https://github.com/alexgreensh/token-optimizer)** tackles the three layers of token waste most tools never touch:
+
+- **Structural**, e.g. bloated configs, unused skills, stale memory
+- **Runtime**, e.g. verbose output, re-reads
+- **Behavioral**, e.g. model misrouting, cache expiry, retry loops
+
+...and more in each. On top of that it compresses your output stack, checkpoints and restores your work so your sessions stay continuous across compaction, and puts every token and dollar saved on a live dashboard.
+
+*Runs on Claude Code, Codex, OpenCode, OpenClaw, Hermes and Copilot.*
+
+**[Outsourcerer](https://github.com/alexgreensh/outsourcerer)** — stay in one session of whatever agent you like best. In the background it:
+
+- runs a squad across the models and harnesses you already pay for
+- picks the best one per task **by benchmark, not just price**
+- checks their work and minds your limits in every engine
+
+You keep the cockpit; the grunt work happens elsewhere.
+
+*Works across Claude Code, Codex, Antigravity, Devin, Droid, Cursor, Warp and Hermes.*
+
+Attention Span trims how much Claude says. These two govern what your whole stack spends.
+
 ## Use with other agents
 
 The style body is plain markdown with no Claude-specific behavior. The only Claude-Code part is the YAML frontmatter at the top of each file (the `name`/`description` block the `/config` picker reads). Other agents ignore or choke on frontmatter, so the install strips it.
