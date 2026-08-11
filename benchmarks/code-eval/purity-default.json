@@ -1,0 +1,77 @@
+{
+  "label": "default",
+  "pure": 1,
+  "n": 8,
+  "pct": 12,
+  "rows": [
+    {
+      "prompt": "Write a two-sentence Slack message telli",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "closer-offer",
+        "lead-in-to-block"
+      ],
+      "first_line": "Here's a message for the team:"
+    },
+    {
+      "prompt": "Write a git commit message for a change ",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "lead-in-to-block"
+      ],
+      "first_line": "Here's a commit message for that fix:"
+    },
+    {
+      "prompt": "Write a one-paragraph out-of-office repl",
+      "pure": true,
+      "reasons": [],
+      "first_line": "Out of office: I'm away on vacation from [start date] through [end dat"
+    },
+    {
+      "prompt": "Write a polite email declining a meeting",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "closer-offer"
+      ],
+      "first_line": "Here's a polite email declining a meeting invitation:"
+    },
+    {
+      "prompt": "Write a PR description for adding rate l",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper"
+      ],
+      "first_line": "Here's a PR description you can adapt. Since I don't have the actual d"
+    },
+    {
+      "prompt": "Write a friendly error message to show o",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "closer-offer",
+        "lead-in-to-block"
+      ],
+      "first_line": "Here's a friendly 404 error message you can use:"
+    },
+    {
+      "prompt": "Write a tweet announcing our new dark mo",
+      "pure": false,
+      "reasons": [
+        "closer-offer"
+      ],
+      "first_line": "Here are a few options for your dark mode announcement tweet:"
+    },
+    {
+      "prompt": "Write a Slack message asking the team to",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "closer-offer"
+      ],
+      "first_line": "Here's a draft you can drop into Slack:"
+    }
+  ]
+}

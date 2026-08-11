@@ -1,0 +1,70 @@
+{
+  "cells": 36,
+  "tasks": 12,
+  "default_pass_pct": 88.9,
+  "styled_pass_pct": 100.0,
+  "diff_pp": 11.1,
+  "gen_model": "claude-opus-4-8",
+  "per_task": {
+    "balanced_brackets": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "merge_intervals": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "word_frequencies": {
+      "d": 2,
+      "s": 3,
+      "n": 3
+    },
+    "roman_to_int": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "flatten": {
+      "d": 2,
+      "s": 3,
+      "n": 3
+    },
+    "rle_encode": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "is_valid_ipv4": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "rotate_matrix": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "parse_query_string": {
+      "d": 2,
+      "s": 3,
+      "n": 3
+    },
+    "longest_common_prefix": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "deep_get": {
+      "d": 3,
+      "s": 3,
+      "n": 3
+    },
+    "chunk": {
+      "d": 2,
+      "s": 3,
+      "n": 3
+    }
+  }
+}

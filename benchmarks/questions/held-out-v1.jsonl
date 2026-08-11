@@ -1,0 +1,24 @@
+{"id": "debug-01", "category": "dev-debug", "q": "My Python script leaks memory over long runs. How do I find what's holding the references?"}
+{"id": "debug-02", "category": "dev-debug", "q": "A Postgres query that was fast last week now takes 20 seconds. Where do I start?"}
+{"id": "debug-03", "category": "dev-debug", "q": "My React app works locally but the production build shows a blank white page. How do I debug it?"}
+{"id": "decision-01", "category": "dev-decision", "q": "REST or GraphQL for a mobile app backend with a small team?"}
+{"id": "decision-02", "category": "dev-decision", "q": "Should I put my background jobs on a message queue or just use cron for now?"}
+{"id": "decision-03", "category": "dev-decision", "q": "Monorepo or separate repos for a web app plus three internal services?"}
+{"id": "explain-01", "category": "concept-explain", "q": "What is a database index and when does adding one hurt instead of help?"}
+{"id": "explain-02", "category": "concept-explain", "q": "Explain what a race condition is to someone who has only written single-threaded code."}
+{"id": "explain-03", "category": "concept-explain", "q": "What does 'eventual consistency' actually mean for my app's users?"}
+{"id": "research-01", "category": "research", "q": "Is it worth switching our team from Jira to Linear? What should I weigh?"}
+{"id": "research-02", "category": "research", "q": "Should a bootstrapped SaaS offer annual billing at a discount? What are the tradeoffs?"}
+{"id": "research-03", "category": "research", "q": "We are deciding between hiring a contractor and a full-time engineer for a 4-month project. How should I think about it?"}
+{"id": "analysis-01", "category": "analysis", "q": "Our onboarding funnel drops 60% of users between signup and first action. How do I diagnose where to focus?"}
+{"id": "analysis-02", "category": "analysis", "q": "Churn ticked up from 3% to 5% last quarter. What is my investigation plan before I panic?"}
+{"id": "analysis-03", "category": "analysis", "q": "Two features are competing for next sprint and both teams think theirs is critical. How do I decide?"}
+{"id": "kwork-01", "category": "knowledge-work", "q": "I have back-to-back meetings all day and real work is not getting done. How do I fix my week?"}
+{"id": "kwork-02", "category": "knowledge-work", "q": "My inbox has 400 unread emails and I do not know where to start. What is a sane triage?"}
+{"id": "kwork-03", "category": "knowledge-work", "q": "I need to give a direct report critical feedback without demoralizing them. How do I frame it?"}
+{"id": "writing-01", "category": "writing", "q": "Write a two-sentence Slack message telling the team a deploy is delayed to tomorrow."}
+{"id": "writing-02", "category": "writing", "q": "Draft a short subject line and one-line preview for a product launch email."}
+{"id": "writing-03", "category": "writing", "q": "Write a one-paragraph out-of-office reply for a week-long vacation."}
+{"id": "lookup-01", "category": "lookup", "q": "What is the difference between 'i.e.' and 'e.g.'?"}
+{"id": "lookup-02", "category": "lookup", "q": "Is it 'fewer' or 'less' for countable things?"}
+{"id": "lookup-03", "category": "lookup", "q": "What does the HTTP 502 status code mean?"}

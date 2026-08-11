@@ -1,0 +1,66 @@
+{
+  "label": "baseline",
+  "pure": 4,
+  "n": 8,
+  "pct": 50,
+  "rows": [
+    {
+      "prompt": "Write a two-sentence Slack message telli",
+      "pure": true,
+      "reasons": [],
+      "first_line": "Deploy's pushed to tomorrow \u2014 we hit a snag that needs sorting before "
+    },
+    {
+      "prompt": "Write a git commit message for a change ",
+      "pure": true,
+      "reasons": [],
+      "first_line": "```"
+    },
+    {
+      "prompt": "Write a one-paragraph out-of-office repl",
+      "pure": true,
+      "reasons": [],
+      "first_line": "Out sick of the office and fully unplugged, back [return date]."
+    },
+    {
+      "prompt": "Write a polite email declining a meeting",
+      "pure": false,
+      "reasons": [
+        "closer-offer"
+      ],
+      "first_line": "Subject: Regretfully Declining \u2014 [Meeting Name]"
+    },
+    {
+      "prompt": "Write a PR description for adding rate l",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "closer-offer"
+      ],
+      "first_line": "Here's a PR description you can drop in and tweak:"
+    },
+    {
+      "prompt": "Write a friendly error message to show o",
+      "pure": true,
+      "reasons": [],
+      "first_line": "Here you go:"
+    },
+    {
+      "prompt": "Write a tweet announcing our new dark mo",
+      "pure": false,
+      "reasons": [
+        "closer-offer"
+      ],
+      "first_line": "Here are three options, pick your vibe:"
+    },
+    {
+      "prompt": "Write a Slack message asking the team to",
+      "pure": false,
+      "reasons": [
+        "opener-wrapper",
+        "lead-in-to-block"
+      ],
+      "first_line": "Here's a draft:"
+    }
+  ]
+}

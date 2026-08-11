@@ -1,0 +1,52 @@
+{
+  "default": {
+    "words_to_emphasis": {
+      "mean": 39.9,
+      "median": 26.0
+    },
+    "answer_first": {
+      "pct": 3
+    },
+    "longest_wall_words": {
+      "mean": 37.3,
+      "median": 36.5
+    },
+    "landing_per_100w": {
+      "mean": 6.9,
+      "median": 6.0
+    },
+    "mean_para_words": {
+      "mean": 35.9,
+      "median": 33.5
+    },
+    "wall_word_fraction": {
+      "mean": 0.3,
+      "median": 0.2
+    }
+  },
+  "styled": {
+    "words_to_emphasis": {
+      "mean": 5.7,
+      "median": 0.0
+    },
+    "answer_first": {
+      "pct": 75
+    },
+    "longest_wall_words": {
+      "mean": 15.2,
+      "median": 15.5
+    },
+    "landing_per_100w": {
+      "mean": 5.7,
+      "median": 5.1
+    },
+    "mean_para_words": {
+      "mean": 32.6,
+      "median": 33.9
+    },
+    "wall_word_fraction": {
+      "mean": 0.2,
+      "median": 0.1
+    }
+  }
+}

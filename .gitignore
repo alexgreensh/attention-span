@@ -3,3 +3,6 @@
 gen-cat-*.log
 gen-favicon.log
 gen-log-*.txt
+.notes/
+__pycache__/
+*.pyc

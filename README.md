@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/alexgreensh/attention-span/releases"><img src="https://img.shields.io/github/v/release/alexgreensh/attention-span?label=version&color=6f42c1" alt="Latest version"></a>
   <img src="https://img.shields.io/github/directory-file-count/alexgreensh/attention-span/output-styles?type=file&extension=md&label=styles&color=blue" alt="styles">
-  <img src="https://img.shields.io/badge/output-%E2%88%9247%25%20tokens-2ea44f" alt="47% fewer output tokens">
+  <img src="https://img.shields.io/badge/work-unchanged-2ea44f" alt="work unchanged (hidden-test benchmark)">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/alexgreensh/attention-span?color=orange" alt="AGPL-3.0"></a>
   <img src="https://img.shields.io/badge/for-Claude%20Code-d97757" alt="For Claude Code">
   <a href="https://github.com/alexgreensh/attention-span/stargazers"><img src="https://img.shields.io/github/stars/alexgreensh/attention-span?style=social" alt="Stars"></a>
@@ -17,7 +17,7 @@
 
 A small collection of [output styles](https://code.claude.com/docs/en/output-styles) for Claude Code that change how it *talks to you*, not how it codes. Answer-first, plain English, easy to skim. Each one is a single markdown file you drop in and switch on.
 
-The concise-by-default rules aren't just kind to your attention, they trim Claude's output, so you literally spend fewer tokens. The pun pays for itself.
+The concise-by-default rules are kind to your attention first. Trimming Claude's output is a welcome side effect, not the point.
 
 Three so far: **Attention-kind** (the flagship), **Spartan** (terse, zero warmth), and **Rundown** (TL;DR briefings). Each has its own section below.
 
@@ -62,21 +62,16 @@ For a new social app, start with PostgreSQL, and the bar for choosing MongoDB in
 
 Same information. One of them you can read at a glance.
 
-### Does it actually help? (measured)
+### Does it actually help? (measured, and reproducible)
 
-12 questions across 8 categories (dev, research, analysis, explaining, writing, quick lookups), each answered 4 times, two runs averaged, scored by a separate judge. [Full results.](benchmarks/results/2026-08-05-diverse-variance.md)
+The benchmark was rebuilt after [#4](https://github.com/alexgreensh/attention-span/issues/4) fairly pointed out the old version measured *compliance* (did the output follow the style's own rules, scored by a Claude judge) rather than *quality*. The new one measures only claims that hold up, most with **no LLM judge at all**, and every number is reproducible from this repo. [Full writeup and runnable harness.](benchmarks/results/2026-08-11-benchmark-rebuild.md)
 
-- **47% fewer output tokens.**
-- **Answer-first: 63% → 96%.** The default buried the answer under preamble a third of the time.
-- **Skimmability: 2.7 → 4.8**, on a scale anchored to an ADHD reader (dense prose caps at 2, no matter how well organized).
-- **Unexplained jargon: 2.0 → 0.9 terms per answer.**
-- **Correctness held at 100%** across all 48 answers. Shorter cost nothing.
+- **The work is untouched.** 12 coding tasks with hidden test suites, style off vs on: pass rates are equal (**both 97%**, same one flaky task, within noise). No judge, just tests passing. Backed by a [blind review of 44 real sessions](benchmarks/results/2026-08-07-real-session-quality-retrospective.md) that found no quality drop.
+- **~43% shorter output** on average (median 41%), and **50-71% on verbose answers** where it matters; already-short answers barely change.
+- **You reach the point in ~6 words instead of ~40.** The answer is in the first line **75%** of the time vs **3%**. (Reading-grade scores are dropped on purpose, they only measure word length and can't see a wall of text.)
+- **Deliverables come out clean 88% of the time**, up from 50%, ask for a message or commit and you get just that, no wrapper.
 
-It holds beyond code: research (-53%), analysis (-55%), and explaining (-50%) cut as hard as debugging. The one place it barely moves is already-short output, a two-line email only shrank 4%, because the style trims rambling and leaves tight answers alone. The gains scale with how much Claude would have over-explained. [Earlier dev-only run, Opus 4.8 vs 5.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
-
-### Does it cost work quality? (real usage, not eval questions)
-
-The runs above measure synthetic questions. This one measures real work. In a blind, observational review of 44 real historical sessions across 4 task types, split at the first config-level output-style adoption, turning output styles on showed no statistically significant drop in task quality and no sign of degradation; on difficulty-matched code work the two were indistinguishable. It shows no quality cost in day-to-day use. [Full results, method, and limitations.](benchmarks/results/2026-08-07-real-session-quality-retrospective.md)
+The earlier "answer-first 63→96, skimmability 2.7→4.8" figures are kept but [relabeled as compliance](benchmarks/results/2026-08-05-diverse-variance.md): they show the style is *followed*, not that it is *better*. We do not claim it produces better answers.
 
 ### What changes
 
@@ -213,7 +208,7 @@ Behind? Re-run the install command in step 1 to overwrite with the latest.
 
 Want to try it for one session first? Run `/config` and pick it under *Output style* instead, then set the default above once you're sold.
 
-**Cost:** ~650 tokens, added once per session and cached after the first request. The eval measured ~48% lower output, so it pays for itself within the first couple of replies.
+**Cost:** ~650 tokens, added once per session and cached after the first request. The benchmark measured ~43% shorter output, so the input cost is negligible after the first reply.
 
 ## Actually want to cut your token bill?
 
@@ -297,7 +292,7 @@ Swap `attention-kind.md` for `spartan.md` or `rundown.md` to install a different
 - Devin loads rules via its Windsurf/Cursor compatibility layer, not a native rules directory. The `~/.codeium/windsurf/memories/` path is global; `.windsurf/rules/` is per-project.
 - Codex appends to a shared `AGENTS.md`, so the fenced markers (`<!-- attention-span:start -->` / `<!-- attention-span:end -->`) let you update or remove the block without duplicates.
 - Antigravity CLI (agy) discovers rules by walking up from cwd to repo root, loading any `GEMINI.md` or `AGENTS.md` it finds. No frontmatter support for standalone rules. Global install works by placing `GEMINI.md` in a parent directory (e.g. `~/`) that's always in the walk-up path.
-- The body is ~650 tokens of input, loaded at the start of every session. Claude Code caches it after the first request; other agents may or may not cache (provider-dependent). The output savings (~47%) dwarf the input cost within a few replies either way.
+- The body is ~650 tokens of input, loaded at the start of every session. Claude Code caches it after the first request; other agents may or may not cache (provider-dependent). The output savings (~43%) dwarf the input cost within a few replies either way.
 - The `sed` strip assumes macOS/Linux. On Windows, use WSL or Git Bash.
 
 ## The styles
