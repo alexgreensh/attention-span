@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/alexgreensh/attention-span/releases"><img src="https://img.shields.io/github/v/release/alexgreensh/attention-span?label=versi%C3%B3n&color=6f42c1" alt="Última versión"></a>
   <img src="https://img.shields.io/github/directory-file-count/alexgreensh/attention-span/output-styles?type=file&extension=md&label=estilos&color=blue" alt="estilos">
-  <img src="https://img.shields.io/badge/salida-%E2%88%9247%25%20tokens-2ea44f" alt="47% menos tokens de salida">
+  <img src="https://img.shields.io/badge/trabajo-intacto-2ea44f" alt="trabajo intacto (benchmark con tests ocultos)">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/alexgreensh/attention-span?color=orange" alt="AGPL-3.0"></a>
   <img src="https://img.shields.io/badge/para-Claude%20Code-d97757" alt="Para Claude Code">
   <a href="https://github.com/alexgreensh/attention-span/stargazers"><img src="https://img.shields.io/github/stars/alexgreensh/attention-span?style=social" alt="Estrellas"></a>
@@ -19,7 +19,7 @@
 
 Una pequeña colección de [estilos de salida](https://code.claude.com/docs/en/output-styles) para Claude Code que cambian *cómo te habla*, no cómo codifica. Primero la respuesta, lenguaje claro, fácil de escanear. Cada uno es un único archivo markdown que añades y activas.
 
-Las reglas de concisión por defecto no solo cuidan tu atención, también reducen la salida de Claude, por lo que literalmente gastas menos tokens. El juego de palabras se paga solo.
+Las reglas de concisión por defecto cuidan tu atención primero. Reducir la salida de Claude es un efecto secundario bienvenido, no el objetivo.
 
 Tres hasta ahora: **Attention-kind** (el principal), **Spartan** (conciso, cero calidez) y **Rundown** (informes breves). Cada uno tiene su propia sección a continuación.
 
@@ -64,17 +64,16 @@ Para una nueva aplicación social, comienza con PostgreSQL, y el umbral para ele
 
 La misma información. Una de ellas puedes leerla de un vistazo.
 
-### ¿Realmente ayuda? (medido)
+### ¿Realmente ayuda? (medido y reproducible)
 
-12 preguntas en 8 categorías (desarrollo, investigación, análisis, explicación, redacción, consultas rápidas), cada una respondida 4 veces, promedio de dos ejecuciones, evaluadas por un juez independiente. [Resultados completos.](benchmarks/results/2026-08-05-diverse-variance.md)
+El benchmark mide el trabajo y la salida por separado, y las cifras principales no usan **ningún juez LLM**. Cada número es reproducible desde este repositorio. [Explicación completa y harness ejecutable.](benchmarks/results/2026-08-11-benchmark.md)
 
-- **47% menos tokens en la salida.**
-- **Primero la respuesta: 63% → 96%.** El predeterminado escondía la respuesta bajo un preámbulo un tercio del tiempo.
-- **Escaneabilidad: 2.7 → 4.8**, en una escala anclada a un lector con TDAH (la prosa densa se queda en 2, sin importar lo bien organizada que esté).
-- **Jerga no explicada: 2.0 → 0.9 términos por respuesta.**
-- **La corrección se mantuvo en 100%** en las 48 respuestas. Ser más breve no costó nada.
+- **El trabajo queda intacto.** 12 tareas de código con suites de tests ocultos, con estilo y sin estilo: las tasas de acierto son iguales (**ambas 97%**, dentro del ruido). Sin juez, solo tests que pasan.
+- **~43% menos de salida** de media (mediana 41%), y **50-71% en respuestas extensas** donde importa; las respuestas ya cortas apenas cambian.
+- **Llegas al punto en ~6 palabras en lugar de ~40.** La respuesta está en la primera línea el **75%** de las veces frente al **3%**. (Los índices de legibilidad no aplican, solo miden la longitud de las palabras y no ven un muro de texto.)
+- **Los entregables salen limpios el 88% de las veces** frente al 12% sin estilo: pides un mensaje o un commit y obtienes justo eso, sin envoltorio.
 
-Funciona más allá del código: investigación (-53%), análisis (-55%) y explicación (-50%) se recortan tanto como la depuración. El único lugar donde apenas mueve es la salida ya corta, un correo de dos líneas solo se redujo un 4%, porque el estilo elimina las divagaciones y deja intactas las respuestas concisas. Las ganancias escalan con lo que Claude habría sobreexplicado. [Ejecución anterior solo de desarrollo, Opus 4.8 vs 5.](benchmarks/results/2026-08-04-attention-kind-vs-default.md)
+Es más corto, más claro y fácil de captar de un vistazo, con el trabajo intacto. No afirmamos que produzca mejores respuestas, no es para eso.
 
 ### ¿Qué cambia?
 
@@ -124,7 +123,7 @@ Corta la que falle la prueba más barata: si se retrasa una semana, quién realm
 </tr>
 </table>
 
-Evaluación Opus 5 (4 preguntas): **~50% menos tokens** que el predeterminado, escaneabilidad a **5.0**, corrección mantenida. [Resultados completos.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
+La misma garantía de solo-estilo que Attention-kind: más corto, más escaneable, con el trabajo intacto. Ver el [benchmark](benchmarks/results/2026-08-11-benchmark.md).
 
 ## Rundown
 
@@ -191,7 +190,7 @@ O colócalo en `.claude/output-styles/` dentro de un solo proyecto.
 
 ¿Quieres probarlo en una sesión primero? Ejecuta `/config` y selecciónalo bajo *Estilo de salida*, luego establece el predeterminado anterior una vez que estés convencido.
 
-**Costo:** ~650 tokens, añadidos una vez por sesión y almacenados en caché después de la primera solicitud. La evaluación midió ~48% menos en la salida, por lo que se autogarra en las primeras respuestas.
+**Costo:** ~650 tokens, añadidos una vez por sesión y almacenados en caché después de la primera solicitud. El benchmark midió ~43% menos de salida, así que el costo de entrada es insignificante tras la primera respuesta.
 
 ## Los estilos
 

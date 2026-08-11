@@ -3,13 +3,13 @@
 Reproducible, dependency-free tools for measuring what an output style does. Clone
 the repo, have the CLIs below on your PATH, and run it. Everything is written to
 disk so you can check the numbers instead of trusting a table. Full writeup:
-[`../results/2026-08-11-benchmark-rebuild.md`](../results/2026-08-11-benchmark-rebuild.md).
+[`../results/2026-08-11-benchmark.md`](../results/2026-08-11-benchmark.md).
 
 ## The idea
 
 Measure the **work** and the **output** separately, and don't ask an LLM "is this
-better?" (that question is what made the old benchmark circular, see
-[#4](https://github.com/alexgreensh/attention-span/issues/4)).
+better?" That question conflates completeness with quality, so it can't fairly
+judge a style whose whole job is to say less.
 
 - **Work** must be unchanged: judged by hidden tests, pass/fail, no opinion.
 - **Output** should be shorter and easier to reach the point in: measured from the

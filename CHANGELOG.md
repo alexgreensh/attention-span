@@ -4,17 +4,15 @@ Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
 ## 0.5
 
-- **Sharper styles.** All three styles get four rules tuned from real-session history:
-  deliverable purity (produce a message/email/commit and you get just that, no "here's a
-  draft" wrapper), never trim a warning when compressing, keep every essential point (brevity
-  is shorter points, not fewer), and the bold/TL;DR alone must carry the whole answer.
-- **Benchmark rebuilt, honest and reproducible.** In response to
-  [#4](https://github.com/alexgreensh/attention-span/issues/4): the old benchmark measured
-  compliance (style followed) with a Claude judge against the style's own rules. The new one
-  measures only defensible claims, most with no LLM judge. Work is unchanged (hidden-test
-  coding A/B, pass rates equal), output ~43% shorter on average (50-71% on verbose answers),
-  and you reach the point in ~6 words vs ~40 (answer in the first line 75% vs 3%). Deliverable
-  purity 50% → 88%. Full writeup and runnable harness under `benchmarks/`.
+- **Sharper styles.** All three styles get four rules: deliverable purity (produce a
+  message/email/commit and you get just that, no "here's a draft" wrapper), never trim a
+  warning when compressing, keep every essential point (brevity is shorter points, not fewer),
+  and the bold/TL;DR alone must carry the whole answer.
+- **Benchmark: honest and reproducible.** Measures the work and the output separately; the
+  headline claims use no LLM judge. Work is unchanged (hidden-test coding A/B, pass rates
+  equal), output ~43% shorter on average (50-71% on verbose answers), and you reach the point
+  in ~6 words vs ~40 (answer in the first line 75% vs 3%). Deliverable purity 88%. Full writeup
+  and runnable harness under `benchmarks/`.
 
 ## 0.4
 

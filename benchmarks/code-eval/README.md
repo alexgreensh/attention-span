@@ -36,7 +36,7 @@ BENCH_STYLE_FILE=../../output-styles/attention-kind.md \
   python3 deliverable_purity.py styled
 ```
 
-Result: no style 12%, previous Attention-kind 50%, shipped v0.5 88% clean.
+Result: 88% clean with the style on, vs 12% with no style.
 
 ## Requirements
 

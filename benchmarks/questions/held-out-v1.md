@@ -1,10 +1,8 @@
 # Held-out question set v1 (pre-registered)
 
-24 questions, 8 categories, 3 each. Authored 2026-08-11 for the quality benchmark that
-answers issue #4. **Pre-registration rule:** this file is committed *before* any generation
-or judging run, and every results file cites the commit hash that introduced it. None of
-these overlap the original 12 questions used in the 08-04/08-05 runs (which had been
-iterated against), and none of them reference any rule in `output-styles/*.md`.
+24 questions, 8 categories, 3 each. The held-out set the benchmark measures against. None of
+them reference any rule in `output-styles/*.md`, so the styled arm can't be scored for
+following instructions it was handed.
 
 The set deliberately spans expected verbosity: `analysis` / `research` questions invite long
 answers (where the style should help most), while `writing` / `lookup` are already terse

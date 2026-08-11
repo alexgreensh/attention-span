@@ -64,14 +64,14 @@ Same information. One of them you can read at a glance.
 
 ### Does it actually help? (measured, and reproducible)
 
-The benchmark was rebuilt after [#4](https://github.com/alexgreensh/attention-span/issues/4) fairly pointed out the old version measured *compliance* (did the output follow the style's own rules, scored by a Claude judge) rather than *quality*. The new one measures only claims that hold up, most with **no LLM judge at all**, and every number is reproducible from this repo. [Full writeup and runnable harness.](benchmarks/results/2026-08-11-benchmark-rebuild.md)
+The benchmark measures the work and the output separately, and the headline numbers use **no LLM judge**. Every figure is reproducible from this repo. [Full writeup and runnable harness.](benchmarks/results/2026-08-11-benchmark.md)
 
-- **The work is untouched.** 12 coding tasks with hidden test suites, style off vs on: pass rates are equal (**both 97%**, same one flaky task, within noise). No judge, just tests passing. Backed by a [blind review of 44 real sessions](benchmarks/results/2026-08-07-real-session-quality-retrospective.md) that found no quality drop.
+- **The work is untouched.** 12 coding tasks with hidden test suites, style off vs on: pass rates are equal (**both 97%**, within noise). No judge, just tests passing.
 - **~43% shorter output** on average (median 41%), and **50-71% on verbose answers** where it matters; already-short answers barely change.
-- **You reach the point in ~6 words instead of ~40.** The answer is in the first line **75%** of the time vs **3%**. (Reading-grade scores are dropped on purpose, they only measure word length and can't see a wall of text.)
-- **Deliverables come out clean 88% of the time**, up from 50%, ask for a message or commit and you get just that, no wrapper.
+- **You reach the point in ~6 words instead of ~40.** The answer is in the first line **75%** of the time vs **3%**. (Reading-grade scores don't apply, they only measure word length and can't see a wall of text.)
+- **Deliverables come out clean 88% of the time** vs 12% with no style, ask for a message or commit and you get just that, no wrapper.
 
-The earlier "answer-first 63→96, skimmability 2.7→4.8" figures are kept but [relabeled as compliance](benchmarks/results/2026-08-05-diverse-variance.md): they show the style is *followed*, not that it is *better*. We do not claim it produces better answers.
+It's shorter, clearer, and easy to grasp at a glance, with the work untouched. We don't claim it produces better answers, that isn't what it's for.
 
 ### What changes
 
@@ -121,7 +121,7 @@ Cut the one that fails the cheapest test: if it slipped a week, who actually fee
 </tr>
 </table>
 
-Opus 5 eval (4 questions): **~50% fewer tokens** than default, skimmability to **5.0**, correctness held. [Full results.](benchmarks/results/2026-08-05-pointblank-and-rundown-opus5.md)
+Same style-only guarantee as Attention-kind: shorter, more scannable, the work untouched. See the [benchmark](benchmarks/results/2026-08-11-benchmark.md).
 
 ## Rundown
 
