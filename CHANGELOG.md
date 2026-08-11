@@ -12,9 +12,9 @@ Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
   [#4](https://github.com/alexgreensh/attention-span/issues/4): the old benchmark measured
   compliance (style followed) with a Claude judge against the style's own rules. The new one
   measures only defensible claims, most with no LLM judge. Work is unchanged (hidden-test
-  coding A/B, styled 100% vs default 97%), output ~40% shorter, and you reach the point in ~6
-  words vs ~40 (answer in the first line 75% vs 3%). Deliverable purity 50% → 88%. Full
-  writeup and runnable harness under `benchmarks/`.
+  coding A/B, pass rates equal), output ~43% shorter on average (50-71% on verbose answers),
+  and you reach the point in ~6 words vs ~40 (answer in the first line 75% vs 3%). Deliverable
+  purity 50% → 88%. Full writeup and runnable harness under `benchmarks/`.
 
 ## 0.4
 
