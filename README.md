@@ -166,6 +166,34 @@ Pick one: save the candidate now, or run the full process and risk losing them?
 </tr>
 </table>
 
+## Actually want to cut your token bill?
+
+Attention Span is here to make your agents' answers readable and easy to grasp at a glance. The lighter token bill on those answers is a welcome side effect. If cutting token spend is your actual goal, the bigger cost is the *work* your agent does, not how it talks, and two sister tools go right at it, pairing naturally with these styles:
+
+<p align="center"><img src="assets/save-tokens.png" alt="The Outsourcerer wizard and the Attention Span cat vacuuming up ghost tokens with Token Optimizer" width="900"></p>
+
+**[Token Optimizer](https://github.com/alexgreensh/token-optimizer)** tackles the three layers of token waste most tools never touch:
+
+- **Structural**, e.g. bloated configs, unused skills, stale memory
+- **Runtime**, e.g. verbose output, re-reads
+- **Behavioral**, e.g. model misrouting, cache expiry, retry loops
+
+...and more in each. On top of that it compresses your output stack, checkpoints and restores your work so your sessions stay continuous across compaction, and puts every token and dollar saved on a live dashboard. It's also the only tool that measures your context quality and adjusts to it, because a cheaper session that does worse work is no saving at all.
+
+*Runs on Claude Code, Codex, OpenCode, OpenClaw, Hermes and Copilot.*
+
+**[Outsourcerer](https://github.com/alexgreensh/outsourcerer)** — stay in one session of whatever agent you like best. In the background it:
+
+- runs a squad across the models and harnesses you already pay for
+- picks the best one per task **by benchmark, not just price**
+- checks their work and minds your limits in every engine
+
+You keep the cockpit; the grunt work happens elsewhere.
+
+*Works across Claude Code, Codex, Antigravity, Devin, Droid, Cursor, Warp and Hermes.*
+
+Attention Span trims how much Claude says. These two govern what your whole stack spends.
+
 ## Install
 
 **1.** Drop the style into your output-styles folder. Global (every project):
@@ -209,34 +237,6 @@ Behind? Re-run the install command in step 1 to overwrite with the latest.
 Want to try it for one session first? Run `/config` and pick it under *Output style* instead, then set the default above once you're sold.
 
 **Cost:** ~650 tokens, added once per session and cached after the first request. The benchmark measured ~43% shorter output, so the input cost is negligible after the first reply.
-
-## Actually want to cut your token bill?
-
-Attention Span is here to make your agents' answers readable and easy to grasp at a glance. The lighter token bill on those answers is a welcome side effect. If cutting token spend is your actual goal, the bigger cost is the *work* your agent does, not how it talks, and two sister tools go right at it, pairing naturally with these styles:
-
-<p align="center"><img src="assets/save-tokens.png" alt="The Outsourcerer wizard and the Attention Span cat vacuuming up ghost tokens with Token Optimizer" width="900"></p>
-
-**[Token Optimizer](https://github.com/alexgreensh/token-optimizer)** tackles the three layers of token waste most tools never touch:
-
-- **Structural**, e.g. bloated configs, unused skills, stale memory
-- **Runtime**, e.g. verbose output, re-reads
-- **Behavioral**, e.g. model misrouting, cache expiry, retry loops
-
-...and more in each. On top of that it compresses your output stack, checkpoints and restores your work so your sessions stay continuous across compaction, and puts every token and dollar saved on a live dashboard. It's also the only tool that measures your context quality and adjusts to it, because a cheaper session that does worse work is no saving at all.
-
-*Runs on Claude Code, Codex, OpenCode, OpenClaw, Hermes and Copilot.*
-
-**[Outsourcerer](https://github.com/alexgreensh/outsourcerer)** — stay in one session of whatever agent you like best. In the background it:
-
-- runs a squad across the models and harnesses you already pay for
-- picks the best one per task **by benchmark, not just price**
-- checks their work and minds your limits in every engine
-
-You keep the cockpit; the grunt work happens elsewhere.
-
-*Works across Claude Code, Codex, Antigravity, Devin, Droid, Cursor, Warp and Hermes.*
-
-Attention Span trims how much Claude says. These two govern what your whole stack spends.
 
 ## Use with other agents
 
