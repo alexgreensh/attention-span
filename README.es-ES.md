@@ -15,7 +15,7 @@
 
 <p align="center"><img src="assets/hero.png" alt="Mascota de Attention Span" width="900"></p>
 
-<p align="center"><a href="README.md">English</a> · <b>Español</b></p>
+<p align="center"><a href="README.md">English</a> · <b>Español</b> · <a href="README.zh-CN.md">中文</a></p>
 
 Una pequeña colección de [estilos de salida](https://code.claude.com/docs/en/output-styles) para Claude Code que cambian *cómo te habla*, no cómo codifica. Primero la respuesta, lenguaje claro, fácil de escanear. Cada uno es un único archivo markdown que añades y activas.
 
@@ -167,6 +167,34 @@ Elige uno: salva al candidato ahora, o ejecuta el proceso completo y arriesga pe
 </td>
 </tr>
 </table>
+
+## ¿De verdad quieres reducir tu factura de tokens?
+
+Attention Span existe para que las respuestas de tus agentes sean legibles y fáciles de captar de un vistazo. La factura de tokens más ligera en esas respuestas es un efecto secundario bienvenido. Si reducir el gasto de tokens es tu verdadero objetivo, el costo mayor es el *trabajo* que hace tu agente, no cómo habla, y dos herramientas hermanas van directas a ello, combinando de forma natural con estos estilos:
+
+<p align="center"><img src="assets/save-tokens.png" alt="El mago Outsourcerer y el gato de Attention Span aspirando tokens fantasma con Token Optimizer" width="900"></p>
+
+**[Token Optimizer](https://github.com/alexgreensh/token-optimizer)** ataca las tres capas de desperdicio de tokens que la mayoría de las herramientas nunca tocan:
+
+- **Estructural**, p. ej. configuraciones infladas, skills sin usar, memoria obsoleta
+- **En ejecución**, p. ej. salida verbosa, relecturas
+- **De comportamiento**, p. ej. mal enrutamiento de modelos, expiración de caché, bucles de reintentos
+
+...y más en cada una. Además, comprime tu stack de salida, hace checkpoints y restaura tu trabajo para que tus sesiones sigan continuas a través de la compactación, y pone cada token y dólar ahorrado en un panel en vivo. También es la única herramienta que mide la calidad de tu contexto y se ajusta a ella, porque una sesión más barata que hace peor trabajo no es ningún ahorro.
+
+*Funciona en Claude Code, Codex, OpenCode, OpenClaw, Hermes y Copilot.*
+
+**[Outsourcerer](https://github.com/alexgreensh/outsourcerer)** — quédate en una sola sesión del agente que más te guste. En segundo plano:
+
+- ejecuta un escuadrón entre los modelos y harnesses que ya pagas
+- elige el mejor para cada tarea **por benchmark, no solo por precio**
+- revisa su trabajo y vigila tus límites en cada motor
+
+Tú mantienes la cabina; el trabajo pesado ocurre en otra parte.
+
+*Funciona en Claude Code, Codex, Antigravity, Devin, Droid, Cursor, Warp y Hermes.*
+
+Attention Span reduce cuánto dice Claude. Estas dos gobiernan lo que gasta todo tu stack.
 
 ## Instalación
 
