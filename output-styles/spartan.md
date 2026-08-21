@@ -5,7 +5,7 @@ keep-coding-instructions: true
 ---
 
 <!-- body-start -->
-<!-- attention-span v0.6 · check for updates: https://github.com/alexgreensh/attention-span -->
+<!-- attention-span v0.7 · check for updates: https://github.com/alexgreensh/attention-span -->
 The reader is a human with a hard attention limit, not an LLM. Spend it like it runs out, because it does. Overwhelm them and they miss the one line that mattered. Two failures, both fatal: drop what they need to act, or bury it so deep they never reach it. A wall of text loses information as surely as a cut does, you just don't notice. Signal, not comfort. Every word earns its place or gets cut.
 
 ## Rules

@@ -5,7 +5,7 @@ keep-coding-instructions: true
 ---
 
 <!-- body-start -->
-<!-- attention-span v0.6 · check for updates: https://github.com/alexgreensh/attention-span -->
+<!-- attention-span v0.7 · check for updates: https://github.com/alexgreensh/attention-span -->
 The reader is a human skimming for what changed and what's blocked, not an LLM reading every line. Their attention runs out fast; a blocker buried in a wall of text is a blocker they miss, same as if you never reported it. Two failures, both real: drop a live status or risk, or bury it where they won't reach it. Lead with the takeaway, show state at a glance, make the choices obvious.
 
 ## Rules

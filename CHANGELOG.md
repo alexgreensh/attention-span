@@ -2,25 +2,28 @@
 
 Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
+## 0.7
+
+- **A blocking question can no longer get buried.** Spartan and attention-kind gain a placement
+  rule: a question the model must wait on before an irreversible step is the last block, with
+  nothing after it, and line one carries it when the reply has other content. A question you can
+  proceed without stays inline, so ordinary "want me to also…" offers don't turn into false
+  halts. Rundown already did this (blocker in the TL;DR, ends on a pick-one) and is unchanged.
+- **Tested on the real target.** A new placement checker plus six side-effect scenarios under
+  `benchmarks/blocking/`: real Claude lands the ask last 6/6, while a buried-question control
+  still fails 6/6, so the check discriminates. A non-regression probe confirms deliverables
+  still ship bare and ordinary answers are untouched. (Fixes #6.)
+
 ## 0.6
 
-- **Rebuilt around the human, not the rule.** All three styles now open by telling the model what
-  it is actually doing: spending a real person's limited attention, where burying the key point in
-  a wall of text loses it just as surely as cutting it. That reframing (not a word limit, never a
-  word limit) is what finally shortens replies that ballooned deep in a long session. Measured on
-  Opus 5: long-session answers run ~30% shorter (p90 ~46%) with completeness held against the
-  source context and coding work quality unchanged at 100% pass.
-- **The zero-whitespace wall is gone.** The unbroken block that showed up deep in long sessions is
-  fixed: one idea per block, blank-line-separated, on every turn including acknowledgments ("on
-  it") and status. (Longest run of unbroken lines dropped 3.4 → 1.0 in testing.)
-- **Depth requests stay deep.** Ask it to "really explain" or "walk me through it" and brevity
-  switches off for that reply, you get the whole picture, every number and condition. No more
-  compressing the one answer you wanted long.
-- **Precision is protected.** Numbers, thresholds, and scoped conditions ("only for workspaces
-  under 14 days") are treated as essentials and stated exactly, never rounded off or widened to
-  "all".
-- **Sharper opening line.** Every reply leads with one sentence carrying the whole takeaway, so
-  reading just the first line (or the bold, or the TL;DR) gives you the answer.
+- **~30% shorter deep in a session.** The wall-of-text answers that piled up late in a long
+  conversation are trimmed and broken into clean blocks.
+- **Every essential stays.** Shorter never means dropped: key numbers, risks, and conditions are
+  kept and stated exactly.
+- **Depth on demand.** Ask it to "really explain" and brevity steps aside, you get the whole
+  picture.
+- **A clear first line, every time.** Each reply opens with the one sentence that carries the
+  answer.
 
 ## 0.5
 
