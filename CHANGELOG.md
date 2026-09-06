@@ -4,27 +4,19 @@ Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
 ## 0.8
 
-- **Now a plugin.** Install the whole set in one step: `/plugin marketplace add alexgreensh/attention-span`
-  then `/plugin install attention-span`. Bundles the three output styles, the `/style` switcher, and
-  user-invoked skills. (Manual curl install still works and is unchanged.)
-- **Styles now work in Claude chats, not just Code.** Each style also ships as a user-invoked skill
-  (`/attention-kind`, `/spartan`, `/rundown`), self-contained so it works in the Claude apps too.
-  Skills are user-invoked only (`disable-model-invocation`), so they cost zero passive context until
-  you call them. Generated from the style sources by `scripts/gen-skills.py` so they can't drift.
-  (Fixes #5.)
-- **New `/tldr` skill.** Compresses a document, thread, transcript, or pasted text into a scannable
-  briefing. Rundown shapes how Claude reports its own work; `/tldr` compresses content someone else wrote.
-- **Rundown: `❔ unknown` is now its own state.** A row you'd need to verify no longer reads as one
-  you can safely ignore, distinct from `⬜ not started`. The invent-no-status guard points at `❔` and
-  asks what would resolve it. (Fixes #9.)
-- **Rundown: numbered choices.** "Your move:" is a numbered list, so a reader can pick by number
-  instead of retyping a label. Emoji preserved. (Fixes #8.)
-- **Attention-kind: brevity governs the reply, not the work.** Two clauses close a loophole where the
-  brevity rules read as permission to investigate less or hand back a step you could have taken. Note:
-  this nudges toward finishing the task before reporting, a mild behavior change, not just a phrasing
-  one. (PR #7, thanks @npwalker.)
+- **One-step install as a plugin.** `/plugin marketplace add alexgreensh/attention-span` then
+  `/plugin install attention-span` gets all three styles, the `/style` switcher, and the skills.
+  (The manual install still works.)
+- **The styles work in the Claude apps now, not just Code.** Type `/attention-kind`, `/spartan`, or
+  `/rundown` in any Claude chat. User-invoked only, so they cost near-zero context until you call one. (#5)
+- **New `/tldr`.** Turns a doc, thread, or transcript into a briefing you can read in seconds. Rundown
+  shapes how Claude reports its own work; `/tldr` compresses what someone else wrote.
+- **Rundown reads clearer.** A `❔ unknown` state, distinct from `⬜ not started` (#9), and numbered
+  choices you can pick by number (#8).
+- **Attention-kind: brevity governs the reply, not the work.** Being brief no longer leaks into doing
+  less or handing back a step you could have taken. (#7, thanks @npwalker)
 
-
+## 0.7
 
 - **A blocking question can no longer get buried.** Spartan and attention-kind gain a placement
   rule: a question the model must wait on before an irreversible step is the last block, with
