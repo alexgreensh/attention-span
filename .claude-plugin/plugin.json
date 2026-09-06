@@ -1,5 +1,6 @@
 {
   "name": "attention-span",
+  "version": "0.8.0",
   "description": "Output styles that make Claude answer-first, plain, and easy to skim, plus a /tldr transform. Attention-kind, Spartan, and Rundown ship as both output styles and user-invoked skills.",
   "author": {
     "name": "Alex Greenshpun",

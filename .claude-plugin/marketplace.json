@@ -1,5 +1,6 @@
 {
   "name": "attention-span",
+  "description": "Answer-first output styles for Claude Code and the Claude apps: Attention-kind, Spartan, Rundown, plus a /tldr transform.",
   "owner": {
     "name": "Alex Greenshpun",
     "url": "https://github.com/alexgreensh"
