@@ -127,7 +127,7 @@ Same style-only guarantee as Attention-kind: shorter, more scannable, the work u
 
 <p align="center"><img src="assets/cat-rundown.png" alt="The Rundown cat aims its laser at a checklist, one line lit" width="860"></p>
 
-Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ checklist, tags the next choices with emoji. Built for status updates and standups. **It optimizes for readability and scannability, not brevity**, so reach for it when clarity matters more than length. Includes a guard against inventing status it wasn't given.
+Briefing style. Opens with a **TL;DR**, shows state as a ✅ / 🟡 / ⬜ / ❔ checklist, tags the next choices with emoji and numbers them so you can pick by number. Built for status updates and standups. **It optimizes for readability and scannability, not brevity**, so reach for it when clarity matters more than length. Includes a guard against inventing status it wasn't given.
 
 The question: **"Summarize where hiring stands: 20 applicants, 5 screened, 2 interviews, no offer, one strong candidate slipping."** Both real Opus 5 eval outputs.
 
@@ -155,12 +155,12 @@ TL;DR: Pipeline is healthy up top but the finish line is stalling, and your best
 🔴 **Blocker:** One strong candidate is slipping. No offer motion means you lose them by default.
 
 **Your move:**
-- 🚀 Fast-track the strong candidate, skip ahead to offer talk today
-- 📞 Run the 2 booked interviews before deciding
-- 📋 Screen more of the 15 untouched applicants for backup
-- ✍️ Draft the offer now so it is ready to fire
+1. 🚀 Fast-track the strong candidate, skip ahead to offer talk today
+2. 📞 Run the 2 booked interviews before deciding
+3. 📋 Screen more of the 15 untouched applicants for backup
+4. ✍️ Draft the offer now so it is ready to fire
 
-Pick one: save the candidate now, or run the full process and risk losing them?
+Pick a number: save the candidate now (1), or run the full process and risk losing them?
 
 </td>
 </tr>
