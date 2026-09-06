@@ -31,15 +31,15 @@ jobs:
           fi
 
           fail=0
-          for f in output-styles/*.md; do
+          for f in output-styles/*.md skills/*/SKILL.md; do
             if ! grep -q "attention-span v${FILE_VERSION} " "$f"; then
               echo "::error::$f is missing the 'attention-span v${FILE_VERSION}' marker."
               fail=1
             fi
           done
-          [ "$fail" -eq 0 ] || { echo "::error::Fix the in-file version markers to match VERSION, then re-tag."; exit 1; }
+          [ "$fail" -eq 0 ] || { echo "::error::Fix the in-file version markers to match VERSION (regenerate skills with scripts/gen-skills.py), then re-tag."; exit 1; }
 
-          echo "Version alignment OK: tag, VERSION, and all style markers are $FILE_VERSION."
+          echo "Version alignment OK: tag, VERSION, and all style + skill markers are $FILE_VERSION."
 
       - name: Extract changelog section
         id: notes

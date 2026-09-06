@@ -1,0 +1,17 @@
+{
+  "name": "attention-span",
+  "owner": {
+    "name": "Alex Greenshpun",
+    "url": "https://github.com/alexgreensh"
+  },
+  "plugins": [
+    {
+      "name": "attention-span",
+      "source": ".",
+      "description": "Answer-first output styles for Claude Code, plus /tldr. Attention-kind, Spartan, Rundown as styles and user-invoked skills.",
+      "homepage": "https://github.com/alexgreensh/attention-span",
+      "license": "AGPL-3.0",
+      "keywords": ["output-style", "adhd", "brevity", "readability", "tldr"]
+    }
+  ]
+}

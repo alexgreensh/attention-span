@@ -196,6 +196,17 @@ Attention Span trims how much Claude says. These two govern what your whole stac
 
 ## Install
 
+**Easiest: install the plugin.** One step gets all three styles, the `/style` switcher, and the
+user-invoked skills (`/attention-kind`, `/spartan`, `/rundown`, `/tldr`). In Claude Code:
+
+```
+/plugin marketplace add alexgreensh/attention-span
+/plugin install attention-span
+```
+
+Then activate a style under `/config` → *Output style*, or just type a skill like `/attention-kind`
+for one conversation. Prefer wiring it up by hand? The manual steps below still work and are unchanged.
+
 **1.** Drop the style into your output-styles folder. Global (every project):
 
 ```bash
@@ -237,6 +248,19 @@ Behind? Re-run the install command in step 1 to overwrite with the latest.
 Want to try it for one session first? Run `/config` and pick it under *Output style* instead, then set the default above once you're sold.
 
 **Cost:** ~650 tokens, added once per session and cached after the first request. The benchmark measured ~43% shorter output, so the input cost is negligible after the first reply.
+
+## Use in Claude chats (skills)
+
+The styles also ship as **skills**, so they work in the Claude apps (claude.ai, desktop, mobile), not
+just Claude Code. Install the plugin above, or add the skill files directly, then just type the command:
+
+- `/attention-kind`, `/spartan`, or `/rundown` — talk in that style for the rest of the conversation.
+- `/tldr` — compress a document, thread, transcript, or pasted text into a scannable briefing. (The
+  styles shape how Claude reports its *own* work; `/tldr` compresses something *someone else* wrote.)
+
+The skills are **user-invoked only** (`disable-model-invocation`), so they cost zero passive context
+until you call one, and they're generated from the same style sources (`scripts/gen-skills.py`), so they
+never drift from the flagship wording.
 
 ## Use with other agents
 
