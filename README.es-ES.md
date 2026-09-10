@@ -15,7 +15,7 @@
 
 <p align="center"><img src="assets/hero.png" alt="Mascota de Attention Span" width="900"></p>
 
-<p align="center"><a href="README.md">English</a> · <b>Español</b> · <a href="README.zh-CN.md">中文</a></p>
+<p align="center"><a href="README.md">English</a> · <b>Español</b> · <a href="README.zh-CN.md">中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a></p>
 
 Una pequeña colección de [estilos de salida](https://code.claude.com/docs/en/output-styles) para Claude Code que cambian *cómo te habla*, no cómo codifica. Primero la respuesta, lenguaje claro, fácil de escanear. Cada uno es un único archivo markdown que añades y activas.
 

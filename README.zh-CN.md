@@ -13,7 +13,7 @@
 
 <p align="center"><img src="assets/hero.png" alt="Attention Span 吉祥物" width="900"></p>
 
-<p align="center"><a href="README.md">English</a> · <a href="README.es-ES.md">Español</a> · <b>中文</b></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.es-ES.md">Español</a> · <b>中文</b> · <a href="README.ja.md">日本語</a> · <a href="README.pt-BR.md">Português</a> · <a href="README.de.md">Deutsch</a> · <a href="README.fr.md">Français</a></p>
 
 一小组给 Claude Code 用的[输出风格](https://code.claude.com/docs/en/output-styles)，只改变它*怎么跟你说话*，不改变它怎么写代码。答案先行、大白话、易于扫读。每个风格都是一个 markdown 文件，放进去、切换开启即可。
 
