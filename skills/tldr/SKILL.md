@@ -1,7 +1,7 @@
 ---
 name: tldr
 description: Compress a document, thread, transcript, or pasted text into a scannable TL;DR.
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 <!-- attention-span v0.8 · check for updates: https://github.com/alexgreensh/attention-span -->

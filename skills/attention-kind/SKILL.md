@@ -1,7 +1,7 @@
 ---
 name: attention-kind
 description: Answer in the ADHD-friendly Attention-kind style for the rest of this chat.
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 <!-- attention-span v0.8 · check for updates: https://github.com/alexgreensh/attention-span -->

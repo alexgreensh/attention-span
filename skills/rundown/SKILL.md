@@ -1,7 +1,7 @@
 ---
 name: rundown
 description: Answer in the Rundown briefing style (TL;DR + checklist + numbered choices).
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 <!-- attention-span v0.8 · check for updates: https://github.com/alexgreensh/attention-span -->

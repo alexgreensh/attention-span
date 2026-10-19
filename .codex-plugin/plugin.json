@@ -1,0 +1,40 @@
+{
+  "name": "attention-span",
+  "version": "0.8.0",
+  "description": "Answer-first output styles and user-invoked skills for clear, scannable Codex conversations.",
+  "author": {
+    "name": "Alex Greenshpun",
+    "url": "https://github.com/alexgreensh"
+  },
+  "homepage": "https://github.com/alexgreensh/attention-span",
+  "repository": "https://github.com/alexgreensh/attention-span",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "output style",
+    "ADHD",
+    "brevity",
+    "readability",
+    "TLDR",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Attention Span",
+    "shortDescription": "Answer-first styles for easier-to-scan conversations",
+    "longDescription": "Attention Span brings Attention-kind, Spartan, Rundown, and TLDR to Codex as user-invoked skills. They change how Codex communicates, not the work it performs.",
+    "developerName": "Alex Greenshpun",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/alexgreensh/attention-span",
+    "brandColor": "#6A5ACD",
+    "logo": "./assets/favicon.png",
+    "defaultPrompt": [
+      "Use attention-kind for this conversation",
+      "Give me a rundown of the current project status",
+      "TLDR this document"
+    ],
+    "screenshots": []
+  }
+}

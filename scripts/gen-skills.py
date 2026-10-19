@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate user-invoked skill files from the output-style sources.
+"""Generate skill files from the output-style sources.
 
-Each skill is self-contained (works in Claude.ai chat, not just Claude Code) and
-user-invoked only (`disable-model-invocation: true`) so it costs zero passive
-context. The body is taken verbatim from output-styles/<slug>.md so the skill can
-never drift from the flagship wording — regenerate after editing a style.
+Each skill is self-contained and model-invocable so the same generated skills work
+in Claude and Codex plugin catalogs. The body is taken verbatim from
+output-styles/<slug>.md so the skill can never drift from the flagship wording —
+regenerate after editing a style.
 
 Run from the repo root:  python3 scripts/gen-skills.py
 """
@@ -59,7 +59,7 @@ def main() -> int:
             "---\n"
             f"name: {name}\n"
             f"description: {desc}\n"
-            "disable-model-invocation: true\n"
+            "disable-model-invocation: false\n"
             "---\n\n"
             f"{MARKER}\n"
             f"Adopt this style for the rest of the conversation, starting with your next reply. "
