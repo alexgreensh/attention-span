@@ -1,6 +1,6 @@
 {
   "name": "attention-span",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "ADHD-friendly output styles. Claude gets straight to the point, so you can pay attention, not tokens.",
   "author": {
     "name": "Alex Greenshpun",

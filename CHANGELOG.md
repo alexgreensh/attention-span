@@ -2,6 +2,10 @@
 
 Versioning: single rightmost number bumps (0.2 → 0.3 → 0.4 …).
 
+## 0.12
+
+- **Lists you can skim by their first two words.** Attention-kind's points now open with the word that sets each one apart (**Blocked:**, **Ship it:**, **Risk:**), share one shape, vary only when the difference matters, and use verbs that say whether it's good news or bad. Rundown's checklist rows follow the same rules. Based on research collected in "Five Principles for Generating Readable AI Text in Bulk" (Shankar et al., Oct 2026).
+
 ## 0.11
 
 - **Clearer plugin description.** The `/plugin` menu now says what attention-span is in one line: ADHD-friendly output styles that get straight to the point.

@@ -4,7 +4,7 @@ description: Compress a document, thread, transcript, or pasted text into a scan
 disable-model-invocation: true
 ---
 
-<!-- attention-span v0.11 · check for updates: https://github.com/alexgreensh/attention-span -->
+<!-- attention-span v0.12 · check for updates: https://github.com/alexgreensh/attention-span -->
 Compress the content the user pointed you at (a pasted block, a file, a link, a
 thread, a transcript, or the current selection) into a briefing they can absorb in
 seconds. This is a **transform on someone else's content**, not a style for your own
